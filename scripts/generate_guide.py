@@ -16,7 +16,7 @@ OUTPUT_FILE = ROOT / "docs" / "guide.md"
 
 def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
     header = (
-        "| 等级/Level | 招式（中文/English） | 属性/Type | 分类/Category | 威力/Power | 命中/Accuracy | PP |\n"
+        "| 等级 | 招式 | 属性 | 分类 | 威力 | 命中 | PP |\n"
         "|---|---|---|---|---|---|---|\n"
     )
     rows = []
