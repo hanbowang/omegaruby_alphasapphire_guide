@@ -329,5 +329,66 @@
     "type_id": "fire",
     "category_id": "physical",
     "contest_category_id": "cool"
+  },
+  {
+    "id": "blaze-kick",
+    "name": {
+      "zh": "火焰踢",
+      "en": "Blaze Kick"
+    },
+    "power": "85",
+    "accuracy": "90",
+    "pp": "10",
+    "appeal": "3",
+    "jam": "0",
+    "type_id": "fire",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "high-jump-kick",
+    "name": {
+      "zh": "飞膝踢",
+      "en": "High Jump Kick"
+    },
+    "power": "130",
+    "accuracy": "90",
+    "pp": "10",
+    "appeal": "6",
+    "jam": "0",
+    "type_id": "fighting",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "brave-bird",
+    "name": {
+      "zh": "勇鸟猛攻",
+      "en": "Brave Bird"
+    },
+    "power": "120",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "6",
+    "jam": "0",
+    "type_id": "flying",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "fire-punch",
+    "name": {
+      "zh": "火焰拳",
+      "en": "Fire Punch"
+    },
+    "power": "75",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "有10%概率使目标灼伤",
+    "type_id": "fire",
+    "category_id": "physical",
+    "contest_category_id": "tough"
   }
 ]
