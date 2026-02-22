@@ -41,7 +41,7 @@
     "pp": "30",
     "appeal": "3",
     "jam": "0",
-    "effect": "先制度+1，通常可先手",
+    "effect": "必定能够先制攻击",
     "type_id": "normal",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -181,7 +181,7 @@
     "pp": "30",
     "appeal": "1",
     "jam": "0",
-    "effect": "提高击中要害率",
+    "effect": "提高击中要害率2级",
     "type_id": "normal",
     "category_id": "status",
     "contest_category_id": "cool"
@@ -229,7 +229,7 @@
     "pp": "20",
     "appeal": "4",
     "jam": "0",
-    "effect": "击中要害率较高",
+    "effect": "击中要害率高1级",
     "type_id": "normal",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -245,7 +245,7 @@
     "pp": "15",
     "appeal": "3",
     "jam": "0",
-    "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害",
+    "effect": "目标两侧的宝可梦会受到溅射伤害",
     "type_id": "fire",
     "category_id": "special",
     "contest_category_id": "beauty"
@@ -309,7 +309,7 @@
     "pp": "15",
     "appeal": "2",
     "jam": "1",
-    "effect": "可以打中使用了飞翔等在空中的目标",
+    "effect": "可以击中飞翔的目标",
     "type_id": "fighting",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -325,7 +325,7 @@
     "pp": "15",
     "appeal": "6",
     "jam": "0",
-    "effect": "会给予对手伤害的一部分反作用力，也有10%概率使目标灼伤",
+    "effect": "对自身造成目标伤害1/3的伤害，10%概率使目标灼伤",
     "type_id": "fire",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -356,6 +356,7 @@
     "pp": "10",
     "appeal": "6",
     "jam": "0",
+    "effect": "若未命中，自身承受最大HP1/2的伤害"
     "type_id": "fighting",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -371,6 +372,7 @@
     "pp": "15",
     "appeal": "6",
     "jam": "0",
+    "effect": "对自身造成目标伤害1/3的伤害"
     "type_id": "flying",
     "category_id": "physical",
     "contest_category_id": "cool"
