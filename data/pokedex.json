@@ -1,5 +1,84 @@
 [
   {
+    "number": "252",
+    "name": {
+      "zh": "木守宫",
+      "en": "Treecko"
+    },
+    "types": [
+      "grass"
+    ],
+    "evolution": {
+      "condition": "Lv.16",
+      "to_number": "253"
+    },
+    "moves": [
+      {
+        "level": "-",
+        "move_id": "pound"
+      },
+      {
+        "level": "-",
+        "move_id": "leer"
+      },
+      {
+        "level": "5",
+        "move_id": "absorb"
+      },
+      {
+        "level": "9",
+        "move_id": "quick-attack"
+      },
+      {
+        "level": "13",
+        "move_id": "mega-drain"
+      },
+      {
+        "level": "17",
+        "move_id": "pursuit"
+      },
+      {
+        "level": "21",
+        "move_id": "giga-drain"
+      },
+      {
+        "level": "25",
+        "move_id": "agility"
+      },
+      {
+        "level": "29",
+        "move_id": "slam"
+      },
+      {
+        "level": "33",
+        "move_id": "detect"
+      },
+      {
+        "level": "37",
+        "move_id": "energy-ball"
+      },
+      {
+        "level": "41",
+        "move_id": "quick-guard"
+      },
+      {
+        "level": "45",
+        "move_id": "endeavor"
+      },
+      {
+        "level": "49",
+        "move_id": "screech"
+      }
+    ],
+    "abilities": [
+      "overgrow",
+      {
+        "id": "unburden",
+        "hidden": true
+      }
+    ]
+  },
+  {
     "number": "255",
     "name": {
       "zh": "火稚鸡",

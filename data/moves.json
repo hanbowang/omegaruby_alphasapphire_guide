@@ -616,5 +616,180 @@
     "type_id": "dark",
     "category_id": "special",
     "contest_category_id": "tough"
+  },
+  {
+    "id": "absorb",
+    "name": {
+      "zh": "吸取",
+      "en": "Absorb"
+    },
+    "power": "20",
+    "accuracy": "100",
+    "pp": "25",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "造成伤害并回复给予目标伤害1/2的HP",
+    "type_id": "grass",
+    "category_id": "special",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "mega-drain",
+    "name": {
+      "zh": "超级吸取",
+      "en": "Mega Drain"
+    },
+    "power": "40",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "3",
+    "effect": "造成伤害并回复给予目标伤害1/2的HP",
+    "type_id": "grass",
+    "category_id": "special",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "pursuit",
+    "name": {
+      "zh": "追打",
+      "en": "Pursuit"
+    },
+    "power": "40",
+    "accuracy": "100",
+    "pp": "20",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "若目标替换离场，威力翻倍并在替换前攻击",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "giga-drain",
+    "name": {
+      "zh": "终极吸取",
+      "en": "Giga Drain"
+    },
+    "power": "75",
+    "accuracy": "100",
+    "pp": "10",
+    "appeal": "1",
+    "jam": "4",
+    "effect": "造成伤害并回复给予目标伤害1/2的HP",
+    "type_id": "grass",
+    "category_id": "special",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "agility",
+    "name": {
+      "zh": "高速移动",
+      "en": "Agility"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "30",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "令自身的速度提升2级",
+    "type_id": "psychic",
+    "category_id": "status",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "slam",
+    "name": {
+      "zh": "摔打",
+      "en": "Slam"
+    },
+    "power": "80",
+    "accuracy": "75",
+    "pp": "20",
+    "appeal": "4",
+    "jam": "0",
+    "type_id": "normal",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "detect",
+    "name": {
+      "zh": "看穿",
+      "en": "Detect"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "5",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "本回合完全防住对手招式，连续使用容易失败",
+    "type_id": "fighting",
+    "category_id": "status",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "energy-ball",
+    "name": {
+      "zh": "能量球",
+      "en": "Energy Ball"
+    },
+    "power": "90",
+    "accuracy": "100",
+    "pp": "10",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "10%概率令目标特防下降1级",
+    "type_id": "grass",
+    "category_id": "special",
+    "contest_category_id": "beauty"
+  },
+  {
+    "id": "quick-guard",
+    "name": {
+      "zh": "快速防守",
+      "en": "Quick Guard"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "0",
+    "effect": "本回合己方场地免受先制招式攻击",
+    "type_id": "fighting",
+    "category_id": "status",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "endeavor",
+    "name": {
+      "zh": "蛮干",
+      "en": "Endeavor"
+    },
+    "power": "—",
+    "accuracy": "100",
+    "pp": "5",
+    "appeal": "2",
+    "jam": "0",
+    "effect": "将目标HP降至与自身当前HP相同",
+    "type_id": "normal",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "screech",
+    "name": {
+      "zh": "刺耳声",
+      "en": "Screech"
+    },
+    "power": "—",
+    "accuracy": "85",
+    "pp": "40",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "令目标的防御下降2级",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "clever"
   }
 ]
