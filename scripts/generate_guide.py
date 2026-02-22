@@ -71,6 +71,7 @@ def format_moves_table(
         contest_category_id = move.get("contest_category_id")
         if contest_category_id is None:
             contest_category = "<nobr>—</nobr>"
+            contest_category_color = None
         else:
             if contest_category_id not in contest_categories_db:
                 raise KeyError(
@@ -79,6 +80,7 @@ def format_moves_table(
             contest_category = (
                 f"<nobr>{contest_categories_db[contest_category_id]['name']['zh']}</nobr>"
             )
+            contest_category_color = contest_categories_db[contest_category_id].get("color")
 
         type_color = types_db[type_id].get("color", "#FFFFFF")
         category_color = categories_db[category_id].get("color", "#FFFFFF")
@@ -108,6 +110,8 @@ def format_moves_table(
                 styles.append(f"background:{type_color}")
             if i == 4:
                 styles.append(f"background:{category_color}")
+            if i == 8 and contest_category_color:
+                styles.append(f"background:{contest_category_color}")
 
             if styles:
                 row_cells.append(f"<td style='{'; '.join(styles)};'>{cell}</td>")
