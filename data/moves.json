@@ -791,5 +791,84 @@
     "type_id": "normal",
     "category_id": "status",
     "contest_category_id": "clever"
+  },
+  {
+    "id": "fury-cutter",
+    "name": {
+      "zh": "连斩",
+      "en": "Fury Cutter"
+    },
+    "power": "40",
+    "accuracy": "95",
+    "pp": "20",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "连续使用时威力会逐渐提升",
+    "type_id": "bug",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "leaf-blade",
+    "name": {
+      "zh": "叶刃",
+      "en": "Leaf Blade"
+    },
+    "power": "90",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "容易击中要害",
+    "type_id": "grass",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "x-scissor",
+    "name": {
+      "zh": "十字剪",
+      "en": "X-Scissor"
+    },
+    "power": "80",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "1",
+    "type_id": "bug",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "false-swipe",
+    "name": {
+      "zh": "点到为止",
+      "en": "False Swipe"
+    },
+    "power": "40",
+    "accuracy": "100",
+    "pp": "40",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "攻击后目标至少会保留1点HP",
+    "type_id": "normal",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "leaf-storm",
+    "name": {
+      "zh": "飞叶风暴",
+      "en": "Leaf Storm"
+    },
+    "power": "130",
+    "accuracy": "90",
+    "pp": "5",
+    "appeal": "6",
+    "jam": "0",
+    "effect": "攻击后自身的特攻会大幅降低",
+    "type_id": "grass",
+    "category_id": "special",
+    "contest_category_id": "beautiful"
   }
 ]
