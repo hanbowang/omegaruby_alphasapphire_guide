@@ -5,14 +5,14 @@
       "zh": "拍击",
       "en": "Pound"
     },
-    "category": "物理/Physical",
     "power": "40",
     "accuracy": "100",
     "pp": "35",
     "appeal": "3",
     "jam": "0",
     "contest_category": "强壮",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "physical"
   },
   {
     "id": "leer",
@@ -20,7 +20,6 @@
       "zh": "瞪眼",
       "en": "Leer"
     },
-    "category": "变化/Status",
     "power": "—",
     "accuracy": "100",
     "pp": "30",
@@ -28,7 +27,8 @@
     "jam": "3",
     "effect": "令对手的防御下降1级",
     "contest_category": "聪明",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "status"
   },
   {
     "id": "quick-attack",
@@ -36,7 +36,6 @@
       "zh": "电光一闪",
       "en": "Quick Attack"
     },
-    "category": "物理/Physical",
     "power": "40",
     "accuracy": "100",
     "pp": "30",
@@ -44,7 +43,8 @@
     "jam": "0",
     "effect": "先制度+1，通常可先手",
     "contest_category": "帅气",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "physical"
   },
   {
     "id": "scratch",
@@ -52,14 +52,14 @@
       "zh": "抓",
       "en": "Scratch"
     },
-    "category": "物理/Physical",
     "power": "40",
     "accuracy": "100",
     "pp": "35",
     "appeal": "4",
     "jam": "0",
     "contest_category": "强壮",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "physical"
   },
   {
     "id": "ember",
@@ -67,7 +67,6 @@
       "zh": "火花",
       "en": "Ember"
     },
-    "category": "特殊/Special",
     "power": "40",
     "accuracy": "100",
     "pp": "25",
@@ -75,7 +74,8 @@
     "jam": "0",
     "effect": "10%概率使目标灼伤",
     "contest_category": "可爱",
-    "type_id": "fire"
+    "type_id": "fire",
+    "category_id": "special"
   },
   {
     "id": "peck",
@@ -83,14 +83,14 @@
       "zh": "啄",
       "en": "Peck"
     },
-    "category": "物理/Physical",
     "power": "35",
     "accuracy": "100",
     "pp": "35",
     "appeal": "4",
     "jam": "0",
     "contest_category": "帅气",
-    "type_id": "flying"
+    "type_id": "flying",
+    "category_id": "physical"
   },
   {
     "id": "tackle",
@@ -98,14 +98,14 @@
       "zh": "撞击",
       "en": "Tackle"
     },
-    "category": "物理/Physical",
     "power": "40",
     "accuracy": "100",
     "pp": "35",
     "appeal": "2",
     "jam": "0",
     "contest_category": "强壮",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "physical"
   },
   {
     "id": "growl",
@@ -113,7 +113,6 @@
       "zh": "叫声",
       "en": "Growl"
     },
-    "category": "变化/Status",
     "power": "—",
     "accuracy": "100",
     "pp": "40",
@@ -121,7 +120,8 @@
     "jam": "0",
     "effect": "令对手的攻击下降1级",
     "contest_category": "可爱",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "status"
   },
   {
     "id": "water-gun",
@@ -129,14 +129,14 @@
       "zh": "水枪",
       "en": "Water Gun"
     },
-    "category": "特殊/Special",
     "power": "40",
     "accuracy": "100",
     "pp": "25",
     "appeal": "2",
     "jam": "0",
     "contest_category": "美丽",
-    "type_id": "water"
+    "type_id": "water",
+    "category_id": "special"
   },
   {
     "id": "fire-spin",
@@ -144,7 +144,6 @@
       "zh": "火焰旋涡",
       "en": "Fire Spin"
     },
-    "category": "特殊/Special",
     "power": "35",
     "accuracy": "85",
     "pp": "15",
@@ -152,7 +151,8 @@
     "jam": "0",
     "effect": "4~5回合束缚并持续造成伤害",
     "contest_category": "美丽",
-    "type_id": "fire"
+    "type_id": "fire",
+    "category_id": "special"
   },
   {
     "id": "flamethrower",
@@ -160,7 +160,6 @@
       "zh": "喷射火焰",
       "en": "Flamethrower"
     },
-    "category": "特殊/Special",
     "power": "90",
     "accuracy": "100",
     "pp": "15",
@@ -168,7 +167,8 @@
     "jam": "0",
     "effect": "10%概率使目标灼伤",
     "contest_category": "美丽",
-    "type_id": "fire"
+    "type_id": "fire",
+    "category_id": "special"
   },
   {
     "id": "focus-energy",
@@ -176,7 +176,6 @@
       "zh": "聚气",
       "en": "Focus Energy"
     },
-    "category": "变化/Status",
     "power": "—",
     "accuracy": "—",
     "pp": "30",
@@ -184,7 +183,8 @@
     "jam": "0",
     "effect": "提高击中要害率",
     "contest_category": "帅气",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "status"
   },
   {
     "id": "mirror-move",
@@ -192,7 +192,6 @@
       "zh": "鹦鹉学舌",
       "en": "Mirror Move"
     },
-    "category": "变化/Status",
     "power": "—",
     "accuracy": "—",
     "pp": "20",
@@ -200,7 +199,8 @@
     "jam": "0",
     "effect": "使出对手上一次使用的招式",
     "contest_category": "聪明",
-    "type_id": "flying"
+    "type_id": "flying",
+    "category_id": "status"
   },
   {
     "id": "sand-attack",
@@ -208,7 +208,6 @@
       "zh": "泼沙",
       "en": "Sand Attack"
     },
-    "category": "变化/Status",
     "power": "—",
     "accuracy": "100",
     "pp": "15",
@@ -216,7 +215,8 @@
     "jam": "0",
     "effect": "令目标命中率下降1级",
     "contest_category": "可爱",
-    "type_id": "ground"
+    "type_id": "ground",
+    "category_id": "status"
   },
   {
     "id": "slash",
@@ -224,7 +224,6 @@
       "zh": "劈开",
       "en": "Slash"
     },
-    "category": "物理/Physical",
     "power": "70",
     "accuracy": "100",
     "pp": "20",
@@ -232,7 +231,8 @@
     "jam": "0",
     "effect": "击中要害率较高",
     "contest_category": "帅气",
-    "type_id": "normal"
+    "type_id": "normal",
+    "category_id": "physical"
   },
   {
     "id": "flame-burst",
@@ -240,7 +240,6 @@
       "zh": "烈焰溅射",
       "en": "Flame Burst"
     },
-    "category": "特殊/Special",
     "power": "70",
     "accuracy": "100",
     "pp": "15",
@@ -248,6 +247,7 @@
     "jam": "0",
     "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害",
     "contest_category": "美丽",
-    "type_id": "fire"
+    "type_id": "fire",
+    "category_id": "special"
   }
 ]
