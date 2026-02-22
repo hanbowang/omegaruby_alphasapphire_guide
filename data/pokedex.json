@@ -152,10 +152,6 @@
       "fire",
       "fighting"
     ],
-    "evolution": {
-      "condition": "—",
-      "to_number": "-"
-    },
     "moves": [
       {
         "level": "-",

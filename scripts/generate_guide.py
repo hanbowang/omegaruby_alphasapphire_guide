@@ -15,7 +15,7 @@ TYPES_FILE = ROOT / "data" / "types.json"
 CATEGORIES_FILE = ROOT / "data" / "categories.json"
 CONTEST_CATEGORIES_FILE = ROOT / "data" / "contest_categories.json"
 OUTPUT_FILE = ROOT / "docs" / "guide.md"
-OUTPUT_HTML_FILE = ROOT / "docs" / "guide.html"
+OUTPUT_HTML_FILE = ROOT / "docs" / "index.html"
 
 def format_moves_table(
     learnset: list[dict],
@@ -135,22 +135,30 @@ def render_pokemon(
     categories_db: dict[str, dict],
     contest_categories_db: dict[str, dict],
 ) -> str:
-    evo_target_number = entry["evolution"]["to_number"]
-    evo_target = pokedex_db.get(evo_target_number)
-    if evo_target is None:
-        evolution_to = f"#{evo_target_number}"
-    else:
-        evolution_to = (
-            f"{evo_target['name']['zh']} / {evo_target['name']['en']}"
-            f" (#{evo_target_number})"
-        )
+    evolution = entry.get("evolution")
+    evolution_text = None
+    if evolution is not None:
+        evo_target_number = evolution["to_number"]
+        evo_target = pokedex_db.get(evo_target_number)
+        if evo_target is None:
+            evolution_to = f"#{evo_target_number}"
+        else:
+            evolution_to = (
+                f"{evo_target['name']['zh']} / {evo_target['name']['en']}"
+                f" (#{evo_target_number})"
+            )
+        evolution_text = f"{evolution['condition']} -> {evolution_to}"
 
     zh_types = format_pokemon_types(entry, types_db)
     abilities_lines = [
         f"- {format_ability(ability_id, abilities_db)}" for ability_id in entry["abilities"]
     ]
+    title = f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
+    if evolution_text is not None:
+        title = f"{title} | {evolution_text}"
+
     lines = [
-        f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {evolution_to}",
+        title,
         "",
         "**特性**：",
         *abilities_lines,
