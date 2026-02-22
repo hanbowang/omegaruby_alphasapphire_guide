@@ -1,6 +1,6 @@
 # ORAS Guide Generator
 
-本仓库用于生成《宝可梦 欧米伽红宝石／阿尔法蓝宝石》中文攻略书（Markdown）。
+本仓库用于生成《宝可梦 欧米伽红宝石／阿尔法蓝宝石》中文攻略书（Markdown / HTML / PDF）。
 
 ## 目录结构
 
@@ -9,7 +9,7 @@
 - `data/types.json`：属性数据库（供招式与其他资料通过 `type_id` 引用）。
 - `data/categories.json`：招式分类数据库（供招式通过 `category_id` 引用）。
 - `data/contest_categories.json`：华丽大赛类别数据库（供招式通过 `contest_category_id` 引用）。
-- `scripts/`：生成 Markdown 书籍的脚本。
+- `scripts/`：生成 Markdown / HTML / PDF 书籍的脚本。
 - `docs/`：生成后的攻略书内容。
 
 ## 当前已实现
@@ -44,4 +44,4 @@
 python3 scripts/generate_guide.py
 ```
 
-生成文件：`docs/guide.md`
+生成文件：`docs/guide.md`、`docs/guide.html`、`docs/guide.pdf`
