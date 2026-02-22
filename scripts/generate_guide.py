@@ -55,9 +55,7 @@ def format_moves_table(
         move_name = f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>"
         effect = move.get("effect", "")
         effect_text = (
-            "<div style='max-width: 16em; white-space: normal; "
-            "word-break: break-word; font-size: 0.9em; line-height: 1.3'>"
-            f"{effect}</div>"
+            "{effect}"
             if effect
             else ""
         )
