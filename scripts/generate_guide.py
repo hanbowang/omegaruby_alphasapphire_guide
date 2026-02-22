@@ -68,6 +68,7 @@ def format_moves_table(
                 f"<nobr>{contest_categories_db[contest_category_id]['name']['zh']}</nobr>"
             )
 
+        type_color = types_db[type_id].get("color", "#FFFFFF")
         cells = [
             learn["level"],
             f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>",
@@ -81,7 +82,13 @@ def format_moves_table(
             move["appeal"],
             move["jam"],
         ]
-        lines.append("<tr>" + "".join(f"<td>{cell}</td>" for cell in cells) + "</tr>")
+        row_cells = []
+        for i, cell in enumerate(cells):
+            if i == 3:
+                row_cells.append(f"<td style='background:{type_color};'>{cell}</td>")
+            else:
+                row_cells.append(f"<td>{cell}</td>")
+        lines.append("<tr>" + "".join(row_cells) + "</tr>")
 
     lines.append("</table>")
     return "\n".join(lines)
