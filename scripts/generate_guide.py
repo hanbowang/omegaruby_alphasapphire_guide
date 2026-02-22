@@ -154,7 +154,10 @@ def format_ability(ability_id: str, abilities_db: dict[str, dict]) -> str:
     if ability_id not in abilities_db:
         raise KeyError(f"Unknown ability_id '{ability_id}' in pokedex abilities.")
     ability = abilities_db[ability_id]
-    return f"{ability['name']['zh']} / {ability['name']['en']} - {ability['description']}"
+    return (
+        f"<strong>{ability['name']['zh']} / {ability['name']['en']}</strong>"
+        f" - {ability['description']}"
+    )
 
 
 def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:

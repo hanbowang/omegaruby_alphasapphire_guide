@@ -356,7 +356,7 @@
     "pp": "10",
     "appeal": "6",
     "jam": "0",
-    "effect": "若未命中，自身承受最大HP1/2的伤害"
+    "effect": "若未命中，自身承受最大HP1/2的伤害",
     "type_id": "fighting",
     "category_id": "physical",
     "contest_category_id": "cool"
@@ -372,7 +372,7 @@
     "pp": "15",
     "appeal": "6",
     "jam": "0",
-    "effect": "对自身造成目标伤害1/3的伤害"
+    "effect": "对自身造成目标伤害1/3的伤害",
     "type_id": "flying",
     "category_id": "physical",
     "contest_category_id": "cool"
