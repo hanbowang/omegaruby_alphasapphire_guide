@@ -155,10 +155,6 @@
     "moves": [
       {
         "level": "-",
-        "move_id": "flare-blitz"
-      },
-      {
-        "level": "-",
         "move_id": "fire-punch"
       },
       {
@@ -174,27 +170,15 @@
         "move_id": "growl"
       },
       {
-        "level": "-",
-        "move_id": "focus-energy"
-      },
-      {
-        "level": "-",
+        "level": "5",
         "move_id": "ember"
       },
       {
-        "level": "-",
+        "level": "10",
         "move_id": "sand-attack"
       },
       {
-        "level": "13",
-        "move_id": "ember"
-      },
-      {
-        "level": "21",
-        "move_id": "sand-attack"
-      },
-      {
-        "level": "17",
+        "level": "14",
         "move_id": "peck"
       },
       {
@@ -202,15 +186,15 @@
         "move_id": "double-kick"
       },
       {
-        "level": "-",
+        "level": "20",
         "move_id": "flame-charge"
       },
       {
-        "level": "32",
+        "level": "25",
         "move_id": "quick-attack"
       },
       {
-        "level": "28",
+        "level": "31",
         "move_id": "bulk-up"
       },
       {
@@ -218,23 +202,23 @@
         "move_id": "blaze-kick"
       },
       {
-        "level": "7",
+        "level": "37",
         "move_id": "focus-energy"
       },
       {
-        "level": "42",
+        "level": "44",
         "move_id": "slash"
       },
       {
-        "level": "49",
+        "level": "50",
         "move_id": "brave-bird"
       },
       {
-        "level": "59",
+        "level": "57",
         "move_id": "sky-uppercut"
       },
       {
-        "level": "66",
+        "level": "63",
         "move_id": "flare-blitz"
       }
     ],
