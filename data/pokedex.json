@@ -245,15 +245,15 @@
         "move_id": "tackle"
       },
       {
-        "level": "-",
+        "level": "4",
         "move_id": "howl"
       },
       {
-        "level": "5",
+        "level": "7",
         "move_id": "sand-attack"
       },
       {
-        "level": "9",
+        "level": "10",
         "move_id": "bite"
       },
       {
@@ -261,40 +261,40 @@
         "move_id": "odor-sleuth"
       },
       {
-        "level": "17",
+        "level": "16",
         "move_id": "roar"
       },
       {
-        "level": "21",
+        "level": "19",
         "move_id": "swagger"
       },
       {
-        "level": "25",
+        "level": "22",
         "move_id": "assurance"
       },
       {
-        "level": "29",
+        "level": "25",
         "move_id": "scary-face"
       },
       {
-        "level": "33",
-        "move_id": "taunt"
-      },
-      {
-        "level": "37",
+        "level": "28",
         "move_id": "embargo"
       },
       {
-        "level": "41",
+        "level": "31",
+        "move_id": "taunt"
+      },
+      {
+        "level": "34",
         "move_id": "take-down"
       },
       {
-        "level": "45",
-        "move_id": "sucker-punch"
+        "level": "37",
+        "move_id": "crunch"
       },
       {
-        "level": "53",
-        "move_id": "crunch"
+        "level": "40",
+        "move_id": "sucker-punch"
       }
     ],
     "abilities": [
