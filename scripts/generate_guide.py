@@ -25,7 +25,7 @@ def format_moves_table(
     contest_categories_db: dict[str, dict],
 ) -> str:
     center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
-    center_vertical_only_indices = {2}
+    center_vertical_only_indices = {1, 2}
 
     header_cells = [
         "<nobr>等级</nobr>",
