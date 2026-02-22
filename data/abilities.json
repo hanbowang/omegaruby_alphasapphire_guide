@@ -22,5 +22,29 @@
       "en": "Torrent"
     },
     "description": "HP 小于 1/3 时，水属性招式的威力增长为 1.5 倍"
+  },
+  {
+    "id": "run-away",
+    "name": {
+      "zh": "逃跑",
+      "en": "Run Away"
+    },
+    "description": "一定能从野生宝可梦战斗中逃走"
+  },
+  {
+    "id": "quick-feet",
+    "name": {
+      "zh": "飞毛腿",
+      "en": "Quick Feet"
+    },
+    "description": "变为异常状态时，速度提升为 1.5 倍，并无视麻痹导致的速度降低"
+  },
+  {
+    "id": "rattled",
+    "name": {
+      "zh": "胆怯",
+      "en": "Rattled"
+    },
+    "description": "受到恶、幽灵、虫属性招式攻击时，速度提升1级"
   }
 ]
