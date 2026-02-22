@@ -40,5 +40,12 @@
       "zh": "飞行",
       "en": "Flying"
     }
+  },
+  {
+    "id": "fighting",
+    "name": {
+      "zh": "格斗",
+      "en": "Fighting"
+    }
   }
 ]
