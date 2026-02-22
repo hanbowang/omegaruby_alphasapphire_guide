@@ -33,6 +33,7 @@
 - `types.json` 负责维护属性主数据（中英名称），供 `moves.json` 等数据表引用。
 - `categories.json` 负责维护招式分类主数据（物理/特殊/变化），供 `moves.json` 通过 `category_id` 引用。
 - `pokedex.json` 的 `types` 字段使用 `type_id`（如 `grass`、`fire`）引用 `types.json`。
+- `pokedex.json` 的 `evolution` 字段仅在存在下一阶段进化时填写；若无进化则可省略该字段。
 - `pokedex.json` 的 `evolution.to_number` 字段使用图鉴编号引用下一阶段宝可梦（如 `"256"`）。
 - `pokedex.json` 的 `moves` 字段仅保留：
   - `level`：该宝可梦学习该招式的等级
@@ -44,4 +45,4 @@
 python3 scripts/generate_guide.py
 ```
 
-生成文件：`docs/guide.md`、`docs/guide.html`
+生成文件：`docs/guide.md`、`docs/index.html`

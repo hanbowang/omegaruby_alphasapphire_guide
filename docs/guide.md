@@ -50,7 +50,7 @@
 | 53 | <nobr>冲天拳</nobr><br><nobr>Sky Uppercut</nobr> | 可以打中使用了飞翔等在空中的目标 | <nobr>格斗</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 85 | 90 | 15 | 2 | 1 |
 | 58 | <nobr>闪焰冲锋</nobr><br><nobr>Flare Blitz</nobr> | 会给予对手伤害的一部分反作用力，也有10%概率使目标灼伤 | <nobr>火</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 120 | 100 | 15 | 6 | 0 |
 
-### #257 火焰鸡 / Blaziken | 火 / 格斗 | — -> #-
+### #257 火焰鸡 / Blaziken | 火 / 格斗
 
 **特性**：
 - 猛火 / Blaze - HP 小于 1/3 时，火属性招式的威力增长为 1.5 倍
