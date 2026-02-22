@@ -1,0 +1,23 @@
+[
+  {
+    "id": "physical",
+    "name": {
+      "zh": "物理",
+      "en": "Physical"
+    }
+  },
+  {
+    "id": "special",
+    "name": {
+      "zh": "特殊",
+      "en": "Special"
+    }
+  },
+  {
+    "id": "status",
+    "name": {
+      "zh": "变化",
+      "en": "Status"
+    }
+  }
+]

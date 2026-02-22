@@ -12,11 +12,15 @@ POKEDEX_FILE = ROOT / "data" / "pokedex.json"
 MOVES_FILE = ROOT / "data" / "moves.json"
 ABILITIES_FILE = ROOT / "data" / "abilities.json"
 TYPES_FILE = ROOT / "data" / "types.json"
+CATEGORIES_FILE = ROOT / "data" / "categories.json"
 OUTPUT_FILE = ROOT / "docs" / "guide.md"
 
 
 def format_moves_table(
-    learnset: list[dict], moves_db: dict[str, dict], types_db: dict[str, dict]
+    learnset: list[dict],
+    moves_db: dict[str, dict],
+    types_db: dict[str, dict],
+    categories_db: dict[str, dict],
 ) -> str:
     header = (
         "| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 类别 | 威力 | 命中 | PP | 表演 | 妨害 |\n"
@@ -35,7 +39,11 @@ def format_moves_table(
 
         move_name = f"{move['name']['zh']}<br>{move['name']['en']}"
         type_name = f"<nobr>{types_db[type_id]['name']['zh']}</nobr>"
-        move_category = f"<nobr>{move['category'].split('/', 1)[0]}</nobr>"
+        category_id = move["category_id"]
+        if category_id not in categories_db:
+            raise KeyError(f"Unknown category_id '{category_id}' in moves database.")
+
+        move_category = f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>"
         contest_category = f"<nobr>{move.get('contest_category', '—')}</nobr>"
         rows.append(
             "| {level} | {move_name} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
@@ -70,6 +78,11 @@ def load_types_db() -> dict[str, dict]:
     return {pokemon_type["id"]: pokemon_type for pokemon_type in types}
 
 
+def load_categories_db() -> dict[str, dict]:
+    categories = json.loads(CATEGORIES_FILE.read_text(encoding="utf-8"))
+    return {category["id"]: category for category in categories}
+
+
 def format_ability(ability_id: str, abilities_db: dict[str, dict]) -> str:
     if ability_id not in abilities_db:
         raise KeyError(f"Unknown ability_id '{ability_id}' in pokedex abilities.")
@@ -97,6 +110,7 @@ def render_pokemon(
     moves_db: dict[str, dict],
     abilities_db: dict[str, dict],
     types_db: dict[str, dict],
+    categories_db: dict[str, dict],
 ) -> str:
     zh_types = format_pokemon_types(entry, types_db)
     abilities_lines = [
@@ -110,7 +124,7 @@ def render_pokemon(
         "",
         "**招式表**",
         "",
-        format_moves_table(entry["moves"], moves_db, types_db),
+        format_moves_table(entry["moves"], moves_db, types_db, categories_db),
         "",
     ]
     return "\n".join(lines)
@@ -121,6 +135,7 @@ def main() -> None:
     moves_db = load_moves_db()
     abilities_db = load_abilities_db()
     types_db = load_types_db()
+    categories_db = load_categories_db()
 
     sections = [
         "# 宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide",
@@ -132,7 +147,9 @@ def main() -> None:
     ]
 
     for pokemon in pokedex:
-        sections.append(render_pokemon(pokemon, moves_db, abilities_db, types_db))
+        sections.append(
+            render_pokemon(pokemon, moves_db, abilities_db, types_db, categories_db)
+        )
 
     OUTPUT_FILE.write_text("\n".join(sections).rstrip() + "\n", encoding="utf-8")
 
