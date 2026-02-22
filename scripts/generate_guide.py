@@ -81,6 +81,7 @@ def format_moves_table(
             )
 
         type_color = types_db[type_id].get("color", "#FFFFFF")
+        category_color = categories_db[category_id].get("color", "#FFFFFF")
         cells = [
             learn["level"],
             f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>",
@@ -105,6 +106,8 @@ def format_moves_table(
 
             if i == 3:
                 styles.append(f"background:{type_color}")
+            if i == 4:
+                styles.append(f"background:{category_color}")
 
             if styles:
                 row_cells.append(f"<td style='{'; '.join(styles)};'>{cell}</td>")
