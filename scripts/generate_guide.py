@@ -231,6 +231,41 @@ def render_pokemon(
     return "\n".join(lines)
 
 
+def render_natures_section() -> str:
+    column_headers = ["攻击↓（辣）", "防御↓（酸）", "速度↓（甜）", "特攻↓（涩）", "特防↓（苦）"]
+    row_headers = ["攻击↑（辣）", "防御↑（酸）", "速度↑（甜）", "特攻↑（涩）", "特防↑（苦）"]
+    rows = [
+        ["勤奋/Hardy", "怕寂寞/Lonely", "勇敢/Brave", "固执/Adamant", "顽皮/Naughty"],
+        ["大胆/Bold", "坦率/Docile", "悠闲/Relaxed", "淘气/Impish", "乐天/Lax"],
+        ["胆小/Timid", "急躁/Hasty", "认真/Serious", "爽朗/Jolly", "天真/Naive"],
+        ["内敛/Modest", "慢吞吞/Mild", "冷静/Quiet", "害羞/Bashful", "马虎/Rash"],
+        ["温和/Calm", "温顺/Gentle", "自大/Sassy", "慎重/Careful", "浮躁/Quirky"],
+    ]
+
+    lines = [
+        "<h2>性格 / Natures</h2>",
+        "<table>",
+        "<tr>",
+        "<th style='text-align:center; vertical-align:middle;'>↑\↓</th>",
+        *[
+            f"<th style='text-align:center; vertical-align:middle;'>{header}</th>"
+            for header in column_headers
+        ],
+        "</tr>",
+    ]
+
+    for row_header, row in zip(row_headers, rows):
+        lines.append("<tr>")
+        lines.append(f"<th style='text-align:center; vertical-align:middle;'>{row_header}</th>")
+        lines.extend(
+            f"<td style='text-align:center; vertical-align:middle;'>{nature}</td>" for nature in row
+        )
+        lines.append("</tr>")
+
+    lines.append("</table>")
+    return "\n".join(lines)
+
+
 def render_html(content_sections: list[str]) -> str:
     return "\n".join(
         [
@@ -254,6 +289,7 @@ def render_html(content_sections: list[str]) -> str:
             "</head>",
             "<body>",
             "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
+            render_natures_section(),
             "<h2>图鉴 / Pokédex</h2>",
             "<blockquote>本章节为首版骨架，展示图鉴条目结构。后续可扩展为完整全国图鉴与招式来源。</blockquote>",
             *content_sections,
