@@ -46,5 +46,13 @@
       "en": "Rattled"
     },
     "description": "受到恶、幽灵、虫属性招式攻击时，速度提升1级"
+  },
+  {
+    "id": "speed-boost",
+    "name": {
+      "zh": "加速",
+      "en": "Speed Boost"
+    },
+    "description": "每回合结束时，速度提升1级"
   }
 ]

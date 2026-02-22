@@ -63,7 +63,11 @@
       }
     ],
     "abilities": [
-      "blaze"
+      "blaze",
+      {
+        "id": "speed-boost",
+        "hidden": true
+      }
     ]
   },
   {
@@ -139,7 +143,11 @@
       }
     ],
     "abilities": [
-      "blaze"
+      "blaze",
+      {
+        "id": "speed-boost",
+        "hidden": true
+      }
     ]
   },
   {
@@ -223,7 +231,11 @@
       }
     ],
     "abilities": [
-      "blaze"
+      "blaze",
+      {
+        "id": "speed-boost",
+        "hidden": true
+      }
     ]
   },
   {
