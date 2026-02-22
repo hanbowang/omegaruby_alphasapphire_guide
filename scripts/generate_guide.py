@@ -25,15 +25,18 @@ def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
         if move_id not in moves_db:
             raise KeyError(f"Unknown move_id '{move_id}' in pokedex learnset.")
         move = moves_db[move_id]
+        move_name = f"{move['name']['zh']}<br>{move['name']['en']}"
+        type_name = f"<nobr>{move['type'].split('/', 1)[0]}</nobr>"
+        move_category = f"<nobr>{move['category'].split('/', 1)[0]}</nobr>"
+        contest_category = f"<nobr>{move.get('contest_category', '—')}</nobr>"
         rows.append(
-            "| {level} | {zh} / {en} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
+            "| {level} | {move_name} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
                 level=learn["level"],
-                zh=move["name"]["zh"],
-                en=move["name"]["en"],
+                move_name=move_name,
                 effect=move.get("effect", ""),
-                type_=move["type"].split("/", 1)[0],
-                category=move["category"].split("/", 1)[0],
-                contest_category=move.get("contest_category", "—"),
+                type_=type_name,
+                category=move_category,
+                contest_category=contest_category,
                 power=move["power"],
                 accuracy=move["accuracy"],
                 pp=move["pp"],
