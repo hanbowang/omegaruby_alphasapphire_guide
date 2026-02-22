@@ -6,6 +6,7 @@
 
 - `data/pokedex.json`：图鉴数据（每只宝可梦的基础信息与等级招式学习表）。
 - `data/moves.json`：可复用的招式数据库（中英名称与战斗参数）。
+- `data/types.json`：属性数据库（供招式与其他资料通过 `type_id` 引用）。
 - `scripts/`：生成 Markdown 书籍的脚本。
 - `docs/`：生成后的攻略书内容。
 
@@ -23,8 +24,10 @@
 ## 数据设计说明
 
 - `moves.json` 负责维护招式主数据，可被多只宝可梦复用。
+  - 使用 `type_id` 引用 `types.json`，避免在招式表中重复维护属性文案
   - 可选 `effect` 字段：仅在招式存在额外效果时填写（例如：可能灼伤、降能力等）
   - `contest_category` 字段：类别（强壮/聪明/美丽/可爱/帅气/机灵）
+- `types.json` 负责维护属性主数据（中英名称），供 `moves.json` 等数据表引用。
 - `pokedex.json` 的 `moves` 字段仅保留：
   - `level`：该宝可梦学习该招式的等级
   - `move_id`：引用 `moves.json` 的招式 ID
