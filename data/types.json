@@ -4,48 +4,55 @@
     "name": {
       "zh": "一般",
       "en": "Normal"
-    }
+    },
+    "color": "#BBBBAA"
   },
   {
     "id": "fire",
     "name": {
       "zh": "火",
       "en": "Fire"
-    }
+    },
+    "color": "#FF4422"
   },
   {
     "id": "water",
     "name": {
       "zh": "水",
       "en": "Water"
-    }
+    },
+    "color": "#FFFFFF"
   },
   {
     "id": "grass",
     "name": {
       "zh": "草",
       "en": "Grass"
-    }
+    },
+    "color": "#FFFFFF"
   },
   {
     "id": "ground",
     "name": {
       "zh": "地面",
       "en": "Ground"
-    }
+    },
+    "color": "#DDBB55"
   },
   {
     "id": "flying",
     "name": {
       "zh": "飞行",
       "en": "Flying"
-    }
+    },
+    "color": "#6699FF"
   },
   {
     "id": "fighting",
     "name": {
       "zh": "格斗",
       "en": "Fighting"
-    }
+    },
+    "color": "#BB5544"
   }
 ]
