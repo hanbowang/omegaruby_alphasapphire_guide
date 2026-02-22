@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Markdown/HTML guides for Pokémon Omega Ruby / Alpha Sapphire."""
+"""Generate HTML guide for Pokémon Omega Ruby / Alpha Sapphire."""
 
 from __future__ import annotations
 
@@ -14,8 +14,8 @@ ABILITIES_FILE = ROOT / "data" / "abilities.json"
 TYPES_FILE = ROOT / "data" / "types.json"
 CATEGORIES_FILE = ROOT / "data" / "categories.json"
 CONTEST_CATEGORIES_FILE = ROOT / "data" / "contest_categories.json"
-OUTPUT_FILE = ROOT / "docs" / "guide.md"
 OUTPUT_HTML_FILE = ROOT / "docs" / "index.html"
+
 
 def format_moves_table(
     learnset: list[dict],
@@ -24,11 +24,24 @@ def format_moves_table(
     categories_db: dict[str, dict],
     contest_categories_db: dict[str, dict],
 ) -> str:
-    header = (
-        "| <nobr>等级</nobr> | <nobr>招式</nobr> | <nobr>特殊效果</nobr> | <nobr>属性</nobr> | <nobr>分类</nobr> | <nobr>类别</nobr> | <nobr>威力</nobr> | <nobr>命中</nobr> | <nobr>PP</nobr> | <nobr>表演</nobr> | <nobr>妨害</nobr> |\n"
-        "|---|---|---|---|---|---|---|---|---|---|---|\n"
-    )
-    rows = []
+    header_cells = [
+        "<nobr>等级</nobr>",
+        "<nobr>招式</nobr>",
+        "<nobr>特殊效果</nobr>",
+        "<nobr>属性</nobr>",
+        "<nobr>分类</nobr>",
+        "<nobr>类别</nobr>",
+        "<nobr>威力</nobr>",
+        "<nobr>命中</nobr>",
+        "<nobr>PP</nobr>",
+        "<nobr>表演</nobr>",
+        "<nobr>妨害</nobr>",
+    ]
+    lines = [
+        "<table>",
+        "<tr>" + "".join(f"<th>{cell}</th>" for cell in header_cells) + "</tr>",
+    ]
+
     for learn in learnset:
         move_id = learn["move_id"]
         if move_id not in moves_db:
@@ -39,15 +52,10 @@ def format_moves_table(
         if type_id not in types_db:
             raise KeyError(f"Unknown type_id '{type_id}' in moves database.")
 
-        move_name = f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>"
-        effect = move.get("effect", "")
-        effect_text = effect if effect else ""
-        type_name = f"<nobr>{types_db[type_id]['name']['zh']}</nobr>"
         category_id = move["category_id"]
         if category_id not in categories_db:
             raise KeyError(f"Unknown category_id '{category_id}' in moves database.")
 
-        move_category = f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>"
         contest_category_id = move.get("contest_category_id")
         if contest_category_id is None:
             contest_category = "<nobr>—</nobr>"
@@ -59,22 +67,24 @@ def format_moves_table(
             contest_category = (
                 f"<nobr>{contest_categories_db[contest_category_id]['name']['zh']}</nobr>"
             )
-        rows.append(
-            "| {level} | {move_name} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
-                level=learn["level"],
-                move_name=move_name,
-                effect=effect_text,
-                type_=type_name,
-                category=move_category,
-                contest_category=contest_category,
-                power=move["power"],
-                accuracy=move["accuracy"],
-                pp=move["pp"],
-                appeal=move["appeal"],
-                jam=move["jam"],
-            )
-        )
-    return header + "\n".join(rows)
+
+        cells = [
+            learn["level"],
+            f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>",
+            move.get("effect", ""),
+            f"<nobr>{types_db[type_id]['name']['zh']}</nobr>",
+            f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>",
+            contest_category,
+            move["power"],
+            move["accuracy"],
+            move["pp"],
+            move["appeal"],
+            move["jam"],
+        ]
+        lines.append("<tr>" + "".join(f"<td>{cell}</td>" for cell in cells) + "</tr>")
+
+    lines.append("</table>")
+    return "\n".join(lines)
 
 
 def load_moves_db() -> dict[str, dict]:
@@ -150,21 +160,21 @@ def render_pokemon(
         evolution_text = f"{evolution['condition']} -> {evolution_to}"
 
     zh_types = format_pokemon_types(entry, types_db)
-    abilities_lines = [
-        f"- {format_ability(ability_id, abilities_db)}" for ability_id in entry["abilities"]
-    ]
-    title = f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
+    title = f"#{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
     if evolution_text is not None:
         title = f"{title} | {evolution_text}"
 
+    abilities_html = "\n".join(
+        f"<li>{format_ability(ability_id, abilities_db)}</li>" for ability_id in entry["abilities"]
+    )
+
     lines = [
-        title,
-        "",
-        "**特性**：",
-        *abilities_lines,
-        "",
-        "**招式表**",
-        "",
+        f"<h3>{title}</h3>",
+        "<p><strong>特性</strong>：</p>",
+        "<ul>",
+        abilities_html,
+        "</ul>",
+        "<p><strong>招式表</strong></p>",
         format_moves_table(
             entry["moves"],
             moves_db,
@@ -172,102 +182,41 @@ def render_pokemon(
             categories_db,
             contest_categories_db,
         ),
-        "",
     ]
     return "\n".join(lines)
 
 
-def markdown_to_html(markdown: str) -> str:
-    lines = markdown.splitlines()
-    html_lines = [
-        "<!doctype html>",
-        "<html lang='zh-CN'>",
-        "<head>",
-        "  <meta charset='utf-8' />",
-        "  <meta name='viewport' content='width=device-width, initial-scale=1' />",
-        "  <title>ORAS Guide</title>",
-        "  <style>",
-        "    body { font-family: sans-serif; font-size: 14px; line-height: 1.35; margin: 1rem auto; max-width: 1100px; padding: 0 0.5rem; }",
-        "    h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
-        "    p { margin: 0.4rem 0; }",
-        "    ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }",
-        "    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
-        "    th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
-        "    th { background: #f6f8fa; white-space: nowrap; }",
-        "    blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
-        "    @media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
-        "  </style>",
-        "</head>",
-        "<body>",
-    ]
-
-    in_list = False
-    in_table = False
-    table_header_done = False
-
-    for line in lines:
-        if line.startswith("|") and line.endswith("|"):
-            cells = [cell.strip() for cell in line.strip("|").split("|")]
-            is_separator = all(set(cell) <= {"-", ":"} and cell for cell in cells)
-
-            if is_separator:
-                continue
-
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-
-            if not in_table:
-                html_lines.append("<table>")
-                in_table = True
-                table_header_done = False
-
-            tag = "th" if not table_header_done else "td"
-            html_lines.append("<tr>" + "".join(f"<{tag}>{cell}</{tag}>" for cell in cells) + "</tr>")
-            table_header_done = True
-            continue
-
-        if in_table:
-            html_lines.append("</table>")
-            in_table = False
-
-        stripped = line.strip()
-        if not stripped:
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            html_lines.append("<br />")
-            continue
-
-        if line.startswith("### "):
-            html_lines.append(f"<h3>{line[4:].strip()}</h3>")
-            continue
-        if line.startswith("## "):
-            html_lines.append(f"<h2>{line[3:].strip()}</h2>")
-            continue
-        if line.startswith("# "):
-            html_lines.append(f"<h1>{line[2:].strip()}</h1>")
-            continue
-        if line.startswith("> "):
-            html_lines.append(f"<blockquote>{line[2:].strip()}</blockquote>")
-            continue
-        if line.startswith("- "):
-            if not in_list:
-                html_lines.append("<ul>")
-                in_list = True
-            html_lines.append(f"<li>{line[2:].strip()}</li>")
-            continue
-
-        text = line.replace("**", "")
-        html_lines.append(f"<p>{text}</p>")
-
-    if in_list:
-        html_lines.append("</ul>")
-    if in_table:
-        html_lines.append("</table>")
-
-    html_lines.extend(["</body>", "</html>"])
-    return "\n".join(html_lines) + "\n"
+def render_html(content_sections: list[str]) -> str:
+    return "\n".join(
+        [
+            "<!doctype html>",
+            "<html lang='zh-CN'>",
+            "<head>",
+            "  <meta charset='utf-8' />",
+            "  <meta name='viewport' content='width=device-width, initial-scale=1' />",
+            "  <title>ORAS Guide</title>",
+            "  <style>",
+            "    body { font-family: sans-serif; font-size: 14px; line-height: 1.35; margin: 1rem auto; max-width: 1100px; padding: 0 0.5rem; }",
+            "    h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
+            "    p { margin: 0.4rem 0; }",
+            "    ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }",
+            "    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
+            "    th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
+            "    th { background: #f6f8fa; white-space: nowrap; }",
+            "    blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
+            "    @media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
+            "  </style>",
+            "</head>",
+            "<body>",
+            "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
+            "<h2>图鉴 / Pokédex</h2>",
+            "<blockquote>本章节为首版骨架，展示图鉴条目结构。后续可扩展为完整全国图鉴与招式来源。</blockquote>",
+            *content_sections,
+            "</body>",
+            "</html>",
+            "",
+        ]
+    )
 
 
 def main() -> None:
@@ -280,30 +229,19 @@ def main() -> None:
     contest_categories_db = load_contest_categories_db()
 
     sections = [
-        "# 宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide",
-        "",
-        "## 图鉴 / Pokédex",
-        "",
-        "> 本章节为首版骨架，展示图鉴条目结构。后续可扩展为完整全国图鉴与招式来源。",
-        "",
+        render_pokemon(
+            pokemon,
+            pokedex_db,
+            moves_db,
+            abilities_db,
+            types_db,
+            categories_db,
+            contest_categories_db,
+        )
+        for pokemon in pokedex
     ]
 
-    for pokemon in pokedex:
-        sections.append(
-            render_pokemon(
-                pokemon,
-                pokedex_db,
-                moves_db,
-                abilities_db,
-                types_db,
-                categories_db,
-                contest_categories_db,
-            )
-        )
-
-    markdown = "\n".join(sections).rstrip() + "\n"
-    OUTPUT_FILE.write_text(markdown, encoding="utf-8")
-    OUTPUT_HTML_FILE.write_text(markdown_to_html(markdown), encoding="utf-8")
+    OUTPUT_HTML_FILE.write_text(render_html(sections), encoding="utf-8")
 
 
 if __name__ == "__main__":
