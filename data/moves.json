@@ -392,5 +392,197 @@
     "type_id": "fire",
     "category_id": "physical",
     "contest_category_id": "tough"
+  },
+  {
+    "id": "howl",
+    "name": {
+      "zh": "长嚎",
+      "en": "Howl"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "40",
+    "appeal": "2",
+    "jam": "0",
+    "effect": "令自身的攻击提升1级",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "bite",
+    "name": {
+      "zh": "咬住",
+      "en": "Bite"
+    },
+    "power": "60",
+    "accuracy": "100",
+    "pp": "25",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "30%概率使目标畏缩",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "odor-sleuth",
+    "name": {
+      "zh": "识破",
+      "en": "Odor Sleuth"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "40",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "使目标回避率还原，并可命中幽灵属性目标",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "roar",
+    "name": {
+      "zh": "吼叫",
+      "en": "Roar"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "20",
+    "appeal": "2",
+    "jam": "4",
+    "effect": "将野生宝可梦赶走或强制替换对手出场宝可梦",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "swagger",
+    "name": {
+      "zh": "虚张声势",
+      "en": "Swagger"
+    },
+    "power": "—",
+    "accuracy": "85",
+    "pp": "15",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "令目标攻击提升2级并陷入混乱",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "assurance",
+    "name": {
+      "zh": "恶意追击",
+      "en": "Assurance"
+    },
+    "power": "60",
+    "accuracy": "100",
+    "pp": "10",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "若目标本回合已受过伤害，威力翻倍",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "scary-face",
+    "name": {
+      "zh": "鬼面",
+      "en": "Scary Face"
+    },
+    "power": "—",
+    "accuracy": "100",
+    "pp": "10",
+    "appeal": "2",
+    "jam": "3",
+    "effect": "令目标的速度下降2级",
+    "type_id": "normal",
+    "category_id": "status",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "taunt",
+    "name": {
+      "zh": "挑衅",
+      "en": "Taunt"
+    },
+    "power": "—",
+    "accuracy": "100",
+    "pp": "20",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "使目标在接下来数回合内只能使用攻击招式",
+    "type_id": "dark",
+    "category_id": "status",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "embargo",
+    "name": {
+      "zh": "查封",
+      "en": "Embargo"
+    },
+    "power": "—",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "使目标在接下来数回合内无法使用携带物品",
+    "type_id": "dark",
+    "category_id": "status",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "take-down",
+    "name": {
+      "zh": "猛撞",
+      "en": "Take Down"
+    },
+    "power": "90",
+    "accuracy": "85",
+    "pp": "20",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "攻击后自己会受到造成伤害1/4的反作用力伤害",
+    "type_id": "normal",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "sucker-punch",
+    "name": {
+      "zh": "突袭",
+      "en": "Sucker Punch"
+    },
+    "power": "70",
+    "accuracy": "100",
+    "pp": "5",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "若目标使用攻击招式则先制攻击并造成伤害",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "clever"
+  },
+  {
+    "id": "crunch",
+    "name": {
+      "zh": "咬碎",
+      "en": "Crunch"
+    },
+    "power": "80",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "20%概率令目标防御下降1级",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "tough"
   }
 ]

@@ -225,5 +225,82 @@
     "abilities": [
       "blaze"
     ]
+  },
+  {
+    "number": "261",
+    "name": {
+      "zh": "土狼犬",
+      "en": "Poochyena"
+    },
+    "types": [
+      "dark"
+    ],
+    "evolution": {
+      "condition": "Lv.18",
+      "to_number": "262"
+    },
+    "moves": [
+      {
+        "level": "-",
+        "move_id": "tackle"
+      },
+      {
+        "level": "-",
+        "move_id": "howl"
+      },
+      {
+        "level": "5",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "9",
+        "move_id": "bite"
+      },
+      {
+        "level": "13",
+        "move_id": "odor-sleuth"
+      },
+      {
+        "level": "17",
+        "move_id": "roar"
+      },
+      {
+        "level": "21",
+        "move_id": "swagger"
+      },
+      {
+        "level": "25",
+        "move_id": "assurance"
+      },
+      {
+        "level": "29",
+        "move_id": "scary-face"
+      },
+      {
+        "level": "33",
+        "move_id": "taunt"
+      },
+      {
+        "level": "37",
+        "move_id": "embargo"
+      },
+      {
+        "level": "41",
+        "move_id": "take-down"
+      },
+      {
+        "level": "45",
+        "move_id": "sucker-punch"
+      },
+      {
+        "level": "53",
+        "move_id": "crunch"
+      }
+    ],
+    "abilities": [
+      "run-away",
+      "quick-feet",
+      "rattled"
+    ]
   }
 ]
