@@ -65,10 +65,10 @@ def render_pokemon(entry: dict, moves_db: dict[str, dict], abilities_db: dict[st
     lines = [
         f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {entry['evolution']['to']}",
         "",
-        "**特性/Abilities**：",
+        "**特性**：",
         *abilities_lines,
         "",
-        "**招式表/Moves**",
+        "**招式表**",
         "",
         format_moves_table(entry["moves"], moves_db),
         "",
