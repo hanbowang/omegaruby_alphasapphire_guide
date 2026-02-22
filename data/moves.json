@@ -25,7 +25,8 @@
     "accuracy": "100",
     "pp": "30",
     "appeal": "2",
-    "jam": "3"
+    "jam": "3",
+    "effect": "令对手的防御下降1级。"
   },
   {
     "id": "quick-attack",
@@ -39,7 +40,8 @@
     "accuracy": "100",
     "pp": "30",
     "appeal": "2",
-    "jam": "0"
+    "jam": "0",
+    "effect": "先制度+1，通常可先手。"
   },
   {
     "id": "scratch",
@@ -67,7 +69,8 @@
     "accuracy": "100",
     "pp": "25",
     "appeal": "2",
-    "jam": "0"
+    "jam": "0",
+    "effect": "10%概率使目标灼伤。"
   },
   {
     "id": "peck",
@@ -109,7 +112,8 @@
     "accuracy": "100",
     "pp": "40",
     "appeal": "2",
-    "jam": "2"
+    "jam": "2",
+    "effect": "令对手的攻击下降1级。"
   },
   {
     "id": "water-gun",
