@@ -276,6 +276,16 @@ def format_multiplier(multiplier: float) -> str:
     return "1×"
 
 
+def get_multiplier_cell_style(multiplier: float) -> str:
+    if multiplier == 2:
+        return "background:#b7eb8f;"
+    if multiplier == 0.5:
+        return "background:#ffb3b3;"
+    if multiplier == 0:
+        return "background:#4a4a4a; color:#ffffff;"
+    return ""
+
+
 def render_type_chart_section(types_db: dict[str, dict]) -> str:
     ordered_types = [
         "normal",
@@ -336,9 +346,14 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
                 raise KeyError(
                     f"Missing multiplier: attack '{attacker_type}' -> defend '{defender_type}'."
                 )
+            multiplier = attack_multipliers[defender_type]
+            cell_style = get_multiplier_cell_style(multiplier)
+            style_parts = ["text-align:center", "vertical-align:middle"]
+            if cell_style:
+                style_parts.append(cell_style.rstrip(";"))
             lines.append(
-                "<td style='text-align:center; vertical-align:middle;'>"
-                f"{format_multiplier(attack_multipliers[defender_type])}</td>"
+                f"<td style='{'; '.join(style_parts)};'>"
+                f"{format_multiplier(multiplier)}</td>"
             )
 
         lines.append("</tr>")
