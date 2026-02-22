@@ -42,6 +42,15 @@
   - 直接使用特性 ID 字符串（如 `"blaze"`）
   - 使用对象 `{ "id": "rattled", "hidden": true }` 标记隐藏特性（页面显示为 `[隐藏]`）
 
+
+## 自动化生成（GitHub Actions）
+
+仓库已配置工作流：`.github/workflows/auto-generate-index.yml`。
+
+- 触发条件：任意 `push`（以及手动 `workflow_dispatch`）
+- 执行内容：运行 `python3 scripts/generate_guide.py`
+- 若 `docs/index.html` 有变更：自动提交并推送更新
+
 ## 生成方法
 
 ```bash
