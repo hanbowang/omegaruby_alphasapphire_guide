@@ -266,6 +266,74 @@ def render_natures_section() -> str:
     return "\n".join(lines)
 
 
+def render_personality_section() -> str:
+    headers = ["个体值", "HP", "攻击", "防御", "特攻", "特防", "速度"]
+    rows = [
+        [
+            "0/5/10/15/20/25/30",
+            "非常喜欢吃东西<br>Loves to eat",
+            "以力气大为傲<br>Proud of its power",
+            "身体强壮<br>Sturdy body",
+            "好奇心强<br>Highly curious",
+            "性格强势<br>Strong willed",
+            "喜欢比谁跑得快<br>Likes to run",
+        ],
+        [
+            "1/6/11/16/21/26/31",
+            "经常睡午觉<br>Takes plenty of siestas",
+            "喜欢胡闹<br>Likes to thrash about",
+            "抗打能力强<br>Capable of taking hits",
+            "喜欢恶作剧<br>Mischievous",
+            "有一点点爱慕虚荣<br>Somewhat vain",
+            "对声音敏感<br>Alert to sounds",
+        ],
+        [
+            "2/7/12/17/22/27",
+            "常常打瞌睡<br>Nods off a lot",
+            "有点容易生气<br>A little quick tempered",
+            "顽强不屈<br>Highly persistent",
+            "做事万无一失<br>Thoroughly cunning",
+            "争强好胜<br>Strongly defiant",
+            "冒冒失失<br>Impetuous and silly",
+        ],
+        [
+            "3/8/13/18/23/28",
+            "经常乱扔东西<br>Scatters things often",
+            "喜欢打架<br>Likes to fight",
+            "能吃苦耐劳<br>Good endurance",
+            "经常思考<br>Often lost in thought",
+            "不服输<br>Hates to lose",
+            "有点容易得意忘形<br>Somewhat of a clown",
+        ],
+        [
+            "4/9/14/19/24/29",
+            "喜欢悠然自在<br>Likes to relax",
+            "血气方刚<br>Quick tempered",
+            "善于忍耐<br>Good perseverance",
+            "一丝不苟<br>Very finicky",
+            "有一点点固执<br>Somewhat stubborn",
+            "逃得快<br>Quick to flee",
+        ],
+    ]
+
+    lines = [
+        "<h2>个性 / Personality</h2>",
+        "<p>个性由最高的个体值决定，参考下表</p>",
+        "<table>",
+        "<tr>",
+    ]
+    lines.extend(f"<th style='text-align:center; vertical-align:middle;'>{header}</th>" for header in headers)
+    lines.append("</tr>")
+
+    for row in rows:
+        lines.append("<tr>")
+        lines.extend(f"<td style='text-align:center; vertical-align:middle;'>{cell}</td>" for cell in row)
+        lines.append("</tr>")
+
+    lines.append("</table>")
+    return "\n".join(lines)
+
+
 def render_html(content_sections: list[str]) -> str:
     return "\n".join(
         [
@@ -290,6 +358,7 @@ def render_html(content_sections: list[str]) -> str:
             "<body>",
             "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
             render_natures_section(),
+            render_personality_section(),
             "<h2>图鉴 / Pokédex</h2>",
             *content_sections,
             "</body>",
