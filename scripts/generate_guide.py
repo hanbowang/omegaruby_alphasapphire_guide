@@ -197,8 +197,6 @@ def render_pokemon(
 
     zh_types = format_pokemon_types(entry, types_db)
     title = f"#{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
-    if evolution_text is not None:
-        title = f"{title} | {evolution_text}"
 
     abilities_html = "\n".join(
         f"<li>{format_ability(ability_id, abilities_db)}</li>" for ability_id in entry["abilities"]
@@ -206,6 +204,12 @@ def render_pokemon(
 
     lines = [
         f"<h3>{title}</h3>",
+    ]
+
+    if evolution_text is not None:
+        lines.append(f"<p><strong>进化</strong>：{evolution_text}</p>")
+
+    lines.extend([
         "<p><strong>特性</strong>：</p>",
         "<ul>",
         abilities_html,
@@ -218,7 +222,7 @@ def render_pokemon(
             categories_db,
             contest_categories_db,
         ),
-    ]
+    ])
     return "\n".join(lines)
 
 
