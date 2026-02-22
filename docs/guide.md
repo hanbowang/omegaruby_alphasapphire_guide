@@ -11,20 +11,20 @@
 
 **招式表**
 
-| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 类别 | 威力 | 命中 | PP | 表演 | 妨害 |
+| <nobr>等级</nobr> | <nobr>招式</nobr> | <nobr>特殊效果</nobr> | <nobr>属性</nobr> | <nobr>分类</nobr> | <nobr>类别</nobr> | <nobr>威力</nobr> | <nobr>命中</nobr> | <nobr>PP</nobr> | <nobr>表演</nobr> | <nobr>妨害</nobr> |
 |---|---|---|---|---|---|---|---|---|---|---|
 | - | <nobr>抓</nobr><br><nobr>Scratch</nobr> |  | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>强壮</nobr> | 40 | 100 | 35 | 4 | 0 |
-| - | <nobr>叫声</nobr><br><nobr>Growl</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令对手的攻击下降1级</div> | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 40 | 2 | 0 |
-| 5 | <nobr>火花</nobr><br><nobr>Ember</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div> | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>可爱</nobr> | 40 | 100 | 25 | 4 | 0 |
-| 10 | <nobr>泼沙</nobr><br><nobr>Sand Attack</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令目标命中率下降1级</div> | <nobr>地面</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 15 | 3 | 0 |
+| - | <nobr>叫声</nobr><br><nobr>Growl</nobr> | {effect} | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 40 | 2 | 0 |
+| 5 | <nobr>火花</nobr><br><nobr>Ember</nobr> | {effect} | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>可爱</nobr> | 40 | 100 | 25 | 4 | 0 |
+| 10 | <nobr>泼沙</nobr><br><nobr>Sand Attack</nobr> | {effect} | <nobr>地面</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 15 | 3 | 0 |
 | 14 | <nobr>啄</nobr><br><nobr>Peck</nobr> |  | <nobr>飞行</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 35 | 100 | 35 | 4 | 0 |
-| 19 | <nobr>火焰旋涡</nobr><br><nobr>Fire Spin</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>4~5回合束缚并持续造成伤害</div> | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 35 | 85 | 15 | 3 | 0 |
-| 23 | <nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>先制度+1，通常可先手</div> | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 40 | 100 | 30 | 3 | 0 |
-| 28 | <nobr>烈焰溅射</nobr><br><nobr>Flame Burst</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>攻击目标后，邻近的宝可梦也会受到少量伤害</div> | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 70 | 100 | 15 | 3 | 0 |
-| 32 | <nobr>聚气</nobr><br><nobr>Focus Energy</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>提高击中要害率</div> | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 30 | 1 | 0 |
-| 37 | <nobr>劈开</nobr><br><nobr>Slash</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>击中要害率较高</div> | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 70 | 100 | 20 | 4 | 0 |
-| 41 | <nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>使出对手上一次使用的招式</div> | <nobr>飞行</nobr> | <nobr>变化</nobr> | <nobr>聪明</nobr> | — | — | 20 | 1 | 0 |
-| 46 | <nobr>喷射火焰</nobr><br><nobr>Flamethrower</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div> | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 90 | 100 | 15 | 4 | 0 |
+| 19 | <nobr>火焰旋涡</nobr><br><nobr>Fire Spin</nobr> | {effect} | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 35 | 85 | 15 | 3 | 0 |
+| 23 | <nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr> | {effect} | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 40 | 100 | 30 | 3 | 0 |
+| 28 | <nobr>烈焰溅射</nobr><br><nobr>Flame Burst</nobr> | {effect} | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 70 | 100 | 15 | 3 | 0 |
+| 32 | <nobr>聚气</nobr><br><nobr>Focus Energy</nobr> | {effect} | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 30 | 1 | 0 |
+| 37 | <nobr>劈开</nobr><br><nobr>Slash</nobr> | {effect} | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 70 | 100 | 20 | 4 | 0 |
+| 41 | <nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr> | {effect} | <nobr>飞行</nobr> | <nobr>变化</nobr> | <nobr>聪明</nobr> | — | — | 20 | 1 | 0 |
+| 46 | <nobr>喷射火焰</nobr><br><nobr>Flamethrower</nobr> | {effect} | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>美丽</nobr> | 90 | 100 | 15 | 4 | 0 |
 
 ### #256 力壮鸡 / Combusken | 火 / 格斗 | Lv.36 -> #257
 
@@ -33,19 +33,19 @@
 
 **招式表**
 
-| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 类别 | 威力 | 命中 | PP | 表演 | 妨害 |
+| <nobr>等级</nobr> | <nobr>招式</nobr> | <nobr>特殊效果</nobr> | <nobr>属性</nobr> | <nobr>分类</nobr> | <nobr>类别</nobr> | <nobr>威力</nobr> | <nobr>命中</nobr> | <nobr>PP</nobr> | <nobr>表演</nobr> | <nobr>妨害</nobr> |
 |---|---|---|---|---|---|---|---|---|---|---|
 | - | <nobr>抓</nobr><br><nobr>Scratch</nobr> |  | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>强壮</nobr> | 40 | 100 | 35 | 4 | 0 |
-| - | <nobr>叫声</nobr><br><nobr>Growl</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令对手的攻击下降1级</div> | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 40 | 2 | 0 |
-| 5 | <nobr>火花</nobr><br><nobr>Ember</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div> | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>可爱</nobr> | 40 | 100 | 25 | 4 | 0 |
-| 10 | <nobr>泼沙</nobr><br><nobr>Sand Attack</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令目标命中率下降1级</div> | <nobr>地面</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 15 | 3 | 0 |
+| - | <nobr>叫声</nobr><br><nobr>Growl</nobr> | {effect} | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 40 | 2 | 0 |
+| 5 | <nobr>火花</nobr><br><nobr>Ember</nobr> | {effect} | <nobr>火</nobr> | <nobr>特殊</nobr> | <nobr>可爱</nobr> | 40 | 100 | 25 | 4 | 0 |
+| 10 | <nobr>泼沙</nobr><br><nobr>Sand Attack</nobr> | {effect} | <nobr>地面</nobr> | <nobr>变化</nobr> | <nobr>可爱</nobr> | — | 100 | 15 | 3 | 0 |
 | 14 | <nobr>啄</nobr><br><nobr>Peck</nobr> |  | <nobr>飞行</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 35 | 100 | 35 | 4 | 0 |
-| 16 | <nobr>二连踢</nobr><br><nobr>Double Kick</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>连续攻击2次</div> | <nobr>格斗</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 30 | 100 | 30 | 2 | 1 |
-| 20 | <nobr>蓄能焰袭</nobr><br><nobr>Flame Charge</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>攻击后自身速度提升1级</div> | <nobr>火</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 50 | 100 | 20 | 1 | 0 |
-| 25 | <nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>先制度+1，通常可先手</div> | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 40 | 100 | 30 | 3 | 0 |
-| 31 | <nobr>健美</nobr><br><nobr>Bulk Up</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>自身的攻击和防御各提升1级</div> | <nobr>格斗</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 20 | 1 | 0 |
-| 36 | <nobr>聚气</nobr><br><nobr>Focus Energy</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>提高击中要害率</div> | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 30 | 1 | 0 |
-| 42 | <nobr>劈开</nobr><br><nobr>Slash</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>击中要害率较高</div> | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 70 | 100 | 20 | 4 | 0 |
-| 47 | <nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>使出对手上一次使用的招式</div> | <nobr>飞行</nobr> | <nobr>变化</nobr> | <nobr>聪明</nobr> | — | — | 20 | 1 | 0 |
-| 53 | <nobr>冲天拳</nobr><br><nobr>Sky Uppercut</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>可以打中使用了飞翔等在空中的目标</div> | <nobr>格斗</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 85 | 90 | 15 | 2 | 1 |
-| 58 | <nobr>闪焰冲锋</nobr><br><nobr>Flare Blitz</nobr> | <div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>会给予对手伤害的一部分反作用力，也有10%概率使目标灼伤</div> | <nobr>火</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 120 | 100 | 15 | 6 | 0 |
+| 16 | <nobr>二连踢</nobr><br><nobr>Double Kick</nobr> | {effect} | <nobr>格斗</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 30 | 100 | 30 | 2 | 1 |
+| 20 | <nobr>蓄能焰袭</nobr><br><nobr>Flame Charge</nobr> | {effect} | <nobr>火</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 50 | 100 | 20 | 1 | 0 |
+| 25 | <nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr> | {effect} | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 40 | 100 | 30 | 3 | 0 |
+| 31 | <nobr>健美</nobr><br><nobr>Bulk Up</nobr> | {effect} | <nobr>格斗</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 20 | 1 | 0 |
+| 36 | <nobr>聚气</nobr><br><nobr>Focus Energy</nobr> | {effect} | <nobr>一般</nobr> | <nobr>变化</nobr> | <nobr>帅气</nobr> | — | — | 30 | 1 | 0 |
+| 42 | <nobr>劈开</nobr><br><nobr>Slash</nobr> | {effect} | <nobr>一般</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 70 | 100 | 20 | 4 | 0 |
+| 47 | <nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr> | {effect} | <nobr>飞行</nobr> | <nobr>变化</nobr> | <nobr>聪明</nobr> | — | — | 20 | 1 | 0 |
+| 53 | <nobr>冲天拳</nobr><br><nobr>Sky Uppercut</nobr> | {effect} | <nobr>格斗</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 85 | 90 | 15 | 2 | 1 |
+| 58 | <nobr>闪焰冲锋</nobr><br><nobr>Flare Blitz</nobr> | {effect} | <nobr>火</nobr> | <nobr>物理</nobr> | <nobr>帅气</nobr> | 120 | 100 | 15 | 6 | 0 |

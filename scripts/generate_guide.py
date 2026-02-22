@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Generate Markdown/HTML/PDF guides for Pokémon Omega Ruby / Alpha Sapphire."""
+"""Generate Markdown/HTML guides for Pokémon Omega Ruby / Alpha Sapphire."""
 
 from __future__ import annotations
 
 import json
-import re
-from html import escape
 from pathlib import Path
 
 
@@ -18,17 +16,6 @@ CATEGORIES_FILE = ROOT / "data" / "categories.json"
 CONTEST_CATEGORIES_FILE = ROOT / "data" / "contest_categories.json"
 OUTPUT_FILE = ROOT / "docs" / "guide.md"
 OUTPUT_HTML_FILE = ROOT / "docs" / "guide.html"
-OUTPUT_PDF_FILE = ROOT / "docs" / "guide.pdf"
-
-PAGE_WIDTH = 595
-PAGE_HEIGHT = 842
-LEFT_MARGIN = 40
-TOP_MARGIN = 50
-BOTTOM_MARGIN = 45
-FONT_SIZE = 10
-LINE_HEIGHT = 14
-MAX_CHARS_PER_LINE = 64
-
 
 def format_moves_table(
     learnset: list[dict],
@@ -38,7 +25,7 @@ def format_moves_table(
     contest_categories_db: dict[str, dict],
 ) -> str:
     header = (
-        "| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 类别 | 威力 | 命中 | PP | 表演 | 妨害 |\n"
+        "| <nobr>等级</nobr> | <nobr>招式</nobr> | <nobr>特殊效果</nobr> | <nobr>属性</nobr> | <nobr>分类</nobr> | <nobr>类别</nobr> | <nobr>威力</nobr> | <nobr>命中</nobr> | <nobr>PP</nobr> | <nobr>表演</nobr> | <nobr>妨害</nobr> |\n"
         "|---|---|---|---|---|---|---|---|---|---|---|\n"
     )
     rows = []
@@ -199,7 +186,7 @@ def markdown_to_html(markdown: str) -> str:
         "    body { font-family: sans-serif; line-height: 1.6; margin: 2rem auto; max-width: 1100px; padding: 0 1rem; }",
         "    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }",
         "    th, td { border: 1px solid #d0d7de; padding: 0.5rem; vertical-align: top; }",
-        "    th { background: #f6f8fa; }",
+        "    th { background: #f6f8fa; white-space: nowrap; }",
         "    blockquote { margin: 1rem 0; padding: 0.5rem 1rem; border-left: 4px solid #d0d7de; color: #57606a; }",
         "  </style>",
         "</head>",
@@ -275,140 +262,6 @@ def markdown_to_html(markdown: str) -> str:
     return "\n".join(html_lines) + "\n"
 
 
-def normalize_line_for_pdf(line: str) -> str:
-    text = line.rstrip()
-    if text.startswith("#"):
-        text = text.lstrip("#").strip()
-    if text.startswith(">"):
-        text = text.lstrip(">").strip()
-    text = text.replace("**", "")
-    text = re.sub(r"<br\s*/?>", " / ", text)
-    text = re.sub(r"<[^>]+>", "", text)
-    text = escape(text, quote=False)
-    return text
-
-
-def wrap_text(text: str, max_chars: int = MAX_CHARS_PER_LINE) -> list[str]:
-    if not text:
-        return [""]
-
-    lines: list[str] = []
-    current = ""
-    for ch in text:
-        current += ch
-        if len(current) >= max_chars:
-            lines.append(current)
-            current = ""
-    if current:
-        lines.append(current)
-    return lines
-
-
-def pdf_hex_text(text: str) -> str:
-    data = text.encode("utf-16-be")
-    return "<FEFF" + data.hex().upper() + ">"
-
-
-def build_page_stream(lines: list[str]) -> bytes:
-    cmds = [
-        "BT",
-        f"/F1 {FONT_SIZE} Tf",
-        f"1 0 0 1 {LEFT_MARGIN} {PAGE_HEIGHT - TOP_MARGIN} Tm",
-        f"{LINE_HEIGHT} TL",
-    ]
-    first = True
-    for line in lines:
-        if first:
-            cmds.append(f"{pdf_hex_text(line)} Tj")
-            first = False
-        else:
-            cmds.append("T*")
-            cmds.append(f"{pdf_hex_text(line)} Tj")
-    cmds.append("ET")
-    return ("\n".join(cmds) + "\n").encode("ascii")
-
-
-def build_pdf(pages: list[list[str]]) -> bytes:
-    objects: list[bytes] = []
-
-    def add_object(content: bytes) -> int:
-        objects.append(content)
-        return len(objects)
-
-    font_obj = add_object(
-        b"<< /Type /Font /Subtype /Type0 /BaseFont /STSong-Light /Encoding /UniGB-UCS2-H /DescendantFonts [3 0 R] >>"
-    )
-    add_object(
-        b"<< /Type /FontDescriptor /FontName /STSong-Light /Flags 4 /Ascent 880 /Descent -120 /CapHeight 700 /ItalicAngle 0 /StemV 80 /MissingWidth 500 >>"
-    )
-    add_object(
-        b"<< /Type /Font /Subtype /CIDFontType0 /BaseFont /STSong-Light /CIDSystemInfo << /Registry (Adobe) /Ordering (GB1) /Supplement 4 >> /FontDescriptor 2 0 R /DW 1000 >>"
-    )
-
-    page_ids = []
-    for page_lines in pages:
-        stream = build_page_stream(page_lines)
-        content_id = add_object(
-            b"<< /Length "
-            + str(len(stream)).encode("ascii")
-            + b" >>\nstream\n"
-            + stream
-            + b"endstream"
-        )
-        page_id = add_object(
-            f"<< /Type /Page /Parent 0 0 R /MediaBox [0 0 {PAGE_WIDTH} {PAGE_HEIGHT}] /Resources << /Font << /F1 {font_obj} 0 R >> >> /Contents {content_id} 0 R >>".encode(
-                "ascii"
-            )
-        )
-        page_ids.append(page_id)
-
-    kids = "[" + " ".join(f"{pid} 0 R" for pid in page_ids) + "]"
-    pages_obj_id = add_object(
-        f"<< /Type /Pages /Kids {kids} /Count {len(page_ids)} >>".encode("ascii")
-    )
-
-    for pid in page_ids:
-        objects[pid - 1] = objects[pid - 1].replace(
-            b"/Parent 0 0 R", f"/Parent {pages_obj_id} 0 R".encode("ascii")
-        )
-
-    catalog_obj_id = add_object(
-        f"<< /Type /Catalog /Pages {pages_obj_id} 0 R >>".encode("ascii")
-    )
-
-    out = bytearray(b"%PDF-1.4\n%\xE2\xE3\xCF\xD3\n")
-    offsets = [0]
-    for i, obj in enumerate(objects, start=1):
-        offsets.append(len(out))
-        out.extend(f"{i} 0 obj\n".encode("ascii"))
-        out.extend(obj)
-        out.extend(b"\nendobj\n")
-
-    xref_pos = len(out)
-    out.extend(f"xref\n0 {len(objects) + 1}\n".encode("ascii"))
-    out.extend(b"0000000000 65535 f \n")
-    for off in offsets[1:]:
-        out.extend(f"{off:010d} 00000 n \n".encode("ascii"))
-
-    out.extend(
-        f"trailer\n<< /Size {len(objects) + 1} /Root {catalog_obj_id} 0 R >>\nstartxref\n{xref_pos}\n%%EOF\n".encode(
-            "ascii"
-        )
-    )
-    return bytes(out)
-
-
-def markdown_to_pdf(markdown: str) -> bytes:
-    lines: list[str] = []
-    for raw in markdown.splitlines():
-        normalized = normalize_line_for_pdf(raw)
-        lines.extend(wrap_text(normalized))
-
-    lines_per_page = (PAGE_HEIGHT - TOP_MARGIN - BOTTOM_MARGIN) // LINE_HEIGHT
-    pages = [lines[i : i + lines_per_page] for i in range(0, len(lines), lines_per_page)]
-    return build_pdf(pages)
-
-
 def main() -> None:
     pokedex = json.loads(POKEDEX_FILE.read_text(encoding="utf-8"))
     pokedex_db = {pokemon["number"]: pokemon for pokemon in pokedex}
@@ -443,7 +296,6 @@ def main() -> None:
     markdown = "\n".join(sections).rstrip() + "\n"
     OUTPUT_FILE.write_text(markdown, encoding="utf-8")
     OUTPUT_HTML_FILE.write_text(markdown_to_html(markdown), encoding="utf-8")
-    OUTPUT_PDF_FILE.write_bytes(markdown_to_pdf(markdown))
 
 
 if __name__ == "__main__":
