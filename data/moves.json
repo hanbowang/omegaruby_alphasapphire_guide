@@ -584,5 +584,37 @@
     "type_id": "dark",
     "category_id": "physical",
     "contest_category_id": "tough"
+  },
+  {
+    "id": "thief",
+    "name": {
+      "zh": "小偷",
+      "en": "Thief"
+    },
+    "power": "60",
+    "accuracy": "100",
+    "pp": "25",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "造成伤害后，若使用者未携带道具则会偷走目标携带的道具",
+    "type_id": "dark",
+    "category_id": "physical",
+    "contest_category_id": "tough"
+  },
+  {
+    "id": "snarl",
+    "name": {
+      "zh": "大声咆哮",
+      "en": "Snarl"
+    },
+    "power": "55",
+    "accuracy": "95",
+    "pp": "15",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "攻击目标造成伤害，并令目标的特攻下降1级",
+    "type_id": "dark",
+    "category_id": "special",
+    "contest_category_id": "tough"
   }
 ]

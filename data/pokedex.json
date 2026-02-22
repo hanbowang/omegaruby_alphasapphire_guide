@@ -317,5 +317,89 @@
         "hidden": true
       }
     ]
+  },
+  {
+    "number": "262",
+    "name": {
+      "zh": "大狼犬",
+      "en": "Mightyena"
+    },
+    "types": [
+      "dark"
+    ],
+    "moves": [
+      {
+        "level": "-",
+        "move_id": "tackle"
+      },
+      {
+        "level": "1",
+        "move_id": "thief"
+      },
+      {
+        "level": "4",
+        "move_id": "howl"
+      },
+      {
+        "level": "7",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "10",
+        "move_id": "bite"
+      },
+      {
+        "level": "13",
+        "move_id": "odor-sleuth"
+      },
+      {
+        "level": "16",
+        "move_id": "roar"
+      },
+      {
+        "level": "18",
+        "move_id": "snarl"
+      },
+      {
+        "level": "20",
+        "move_id": "swagger"
+      },
+      {
+        "level": "24",
+        "move_id": "assurance"
+      },
+      {
+        "level": "28",
+        "move_id": "scary-face"
+      },
+      {
+        "level": "32",
+        "move_id": "embargo"
+      },
+      {
+        "level": "36",
+        "move_id": "taunt"
+      },
+      {
+        "level": "40",
+        "move_id": "take-down"
+      },
+      {
+        "level": "44",
+        "move_id": "crunch"
+      },
+      {
+        "level": "48",
+        "move_id": "sucker-punch"
+      }
+    ],
+    "abilities": [
+      "intimidate",
+      "quick-feet",
+      {
+        "id": "moxie",
+        "hidden": true
+      }
+    ]
   }
 ]

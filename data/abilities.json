@@ -54,5 +54,21 @@
       "en": "Speed Boost"
     },
     "description": "每回合结束时，速度提升1级"
+  },
+  {
+    "id": "intimidate",
+    "name": {
+      "zh": "威吓",
+      "en": "Intimidate"
+    },
+    "description": "出场时威吓对手，令对手的攻击下降1级"
+  },
+  {
+    "id": "moxie",
+    "name": {
+      "zh": "自信过度",
+      "en": "Moxie"
+    },
+    "description": "打倒对手后，攻击提升1级"
   }
 ]
