@@ -38,6 +38,9 @@
 - `pokedex.json` 的 `moves` 字段仅保留：
   - `level`：该宝可梦学习该招式的等级
   - `move_id`：引用 `moves.json` 的招式 ID
+- `pokedex.json` 的 `abilities` 字段支持两种写法：
+  - 直接使用特性 ID 字符串（如 `"blaze"`）
+  - 使用对象 `{ "id": "rattled", "hidden": true }` 标记隐藏特性（页面显示为 `[隐藏]`）
 
 ## 生成方法
 
