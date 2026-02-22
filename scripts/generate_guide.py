@@ -164,7 +164,9 @@ def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:
     zh_types = []
     for raw_type in entry["types"]:
         if raw_type in types_db:
-            zh_types.append(types_db[raw_type]["name"]["zh"])
+            type_name = types_db[raw_type]["name"]["zh"]
+            type_color = types_db[raw_type].get("color", "inherit")
+            zh_types.append(f"<span style='color:{type_color};'>{type_name}</span>")
             continue
 
         if "/" in raw_type:
