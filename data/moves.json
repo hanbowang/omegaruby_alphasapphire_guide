@@ -249,5 +249,85 @@
     "type_id": "fire",
     "category_id": "special",
     "contest_category_id": "beauty"
+  },
+  {
+    "id": "double-kick",
+    "name": {
+      "zh": "二连踢",
+      "en": "Double Kick"
+    },
+    "power": "30",
+    "accuracy": "100",
+    "pp": "30",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "连续攻击2次",
+    "type_id": "fighting",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "flame-charge",
+    "name": {
+      "zh": "蓄能焰袭",
+      "en": "Flame Charge"
+    },
+    "power": "50",
+    "accuracy": "100",
+    "pp": "20",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "攻击后自身速度提升1级",
+    "type_id": "fire",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "bulk-up",
+    "name": {
+      "zh": "健美",
+      "en": "Bulk Up"
+    },
+    "power": "—",
+    "accuracy": "—",
+    "pp": "20",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "自身的攻击和防御各提升1级",
+    "type_id": "fighting",
+    "category_id": "status",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "sky-uppercut",
+    "name": {
+      "zh": "冲天拳",
+      "en": "Sky Uppercut"
+    },
+    "power": "85",
+    "accuracy": "90",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "1",
+    "effect": "可以打中使用了飞翔等在空中的目标",
+    "type_id": "fighting",
+    "category_id": "physical",
+    "contest_category_id": "cool"
+  },
+  {
+    "id": "flare-blitz",
+    "name": {
+      "zh": "闪焰冲锋",
+      "en": "Flare Blitz"
+    },
+    "power": "120",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "6",
+    "jam": "0",
+    "effect": "会给予对手伤害的一部分反作用力，也有10%概率使目标灼伤",
+    "type_id": "fire",
+    "category_id": "physical",
+    "contest_category_id": "cool"
   }
 ]

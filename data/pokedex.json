@@ -65,5 +65,81 @@
     "abilities": [
       "blaze"
     ]
+  },
+  {
+    "number": "256",
+    "name": {
+      "zh": "力壮鸡",
+      "en": "Combusken"
+    },
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "evolution": {
+      "condition": "Lv.36",
+      "to_number": "257"
+    },
+    "moves": [
+      {
+        "level": "-",
+        "move_id": "scratch"
+      },
+      {
+        "level": "-",
+        "move_id": "growl"
+      },
+      {
+        "level": "5",
+        "move_id": "ember"
+      },
+      {
+        "level": "10",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "14",
+        "move_id": "peck"
+      },
+      {
+        "level": "16",
+        "move_id": "double-kick"
+      },
+      {
+        "level": "20",
+        "move_id": "flame-charge"
+      },
+      {
+        "level": "25",
+        "move_id": "quick-attack"
+      },
+      {
+        "level": "31",
+        "move_id": "bulk-up"
+      },
+      {
+        "level": "36",
+        "move_id": "focus-energy"
+      },
+      {
+        "level": "42",
+        "move_id": "slash"
+      },
+      {
+        "level": "47",
+        "move_id": "mirror-move"
+      },
+      {
+        "level": "53",
+        "move_id": "sky-uppercut"
+      },
+      {
+        "level": "58",
+        "move_id": "flare-blitz"
+      }
+    ],
+    "abilities": [
+      "blaze"
+    ]
   }
 ]
