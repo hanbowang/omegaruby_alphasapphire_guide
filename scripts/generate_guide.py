@@ -15,6 +15,24 @@ TYPES_FILE = ROOT / "data" / "types.json"
 CATEGORIES_FILE = ROOT / "data" / "categories.json"
 CONTEST_CATEGORIES_FILE = ROOT / "data" / "contest_categories.json"
 OUTPUT_HTML_FILE = ROOT / "docs" / "index.html"
+OUTPUT_CSS_FILE = ROOT / "docs" / "styles.css"
+
+
+def render_css() -> str:
+    return "\n".join(
+        [
+            "body { font-family: sans-serif; font-size: 14px; line-height: 1.35; margin: 1rem auto; max-width: 1100px; padding: 0 0.5rem; }",
+            "h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
+            "p { margin: 0.4rem 0; }",
+            "ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }",
+            "table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
+            "th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
+            "th { background: #f6f8fa; white-space: nowrap; }",
+            "blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
+            "@media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
+            "",
+        ]
+    )
 
 
 def format_moves_table(
@@ -463,17 +481,7 @@ def render_html(content_sections: list[str], types_db: dict[str, dict]) -> str:
             "  <meta charset='utf-8' />",
             "  <meta name='viewport' content='width=device-width, initial-scale=1' />",
             "  <title>ORAS Guide</title>",
-            "  <style>",
-            "    body { font-family: sans-serif; font-size: 14px; line-height: 1.35; margin: 1rem auto; max-width: 1100px; padding: 0 0.5rem; }",
-            "    h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
-            "    p { margin: 0.4rem 0; }",
-            "    ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }",
-            "    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
-            "    th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
-            "    th { background: #f6f8fa; white-space: nowrap; }",
-            "    blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
-            "    @media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
-            "  </style>",
+            "  <link rel='stylesheet' href='styles.css' />",
             "</head>",
             "<body>",
             "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
@@ -512,6 +520,7 @@ def main() -> None:
     ]
 
     OUTPUT_HTML_FILE.write_text(render_html(sections, types_db), encoding="utf-8")
+    OUTPUT_CSS_FILE.write_text(render_css(), encoding="utf-8")
 
 
 if __name__ == "__main__":
