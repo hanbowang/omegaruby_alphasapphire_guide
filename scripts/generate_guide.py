@@ -150,12 +150,24 @@ def load_contest_categories_db() -> dict[str, dict]:
     }
 
 
-def format_ability(ability_id: str, abilities_db: dict[str, dict]) -> str:
+def parse_ability_entry(ability_entry: str | dict) -> tuple[str, bool]:
+    if isinstance(ability_entry, str):
+        return ability_entry, False
+
+    ability_id = ability_entry.get("id")
+    if not ability_id:
+        raise KeyError("Ability entry object must include non-empty 'id'.")
+    return ability_id, bool(ability_entry.get("hidden", False))
+
+
+def format_ability(ability_entry: str | dict, abilities_db: dict[str, dict]) -> str:
+    ability_id, is_hidden = parse_ability_entry(ability_entry)
     if ability_id not in abilities_db:
         raise KeyError(f"Unknown ability_id '{ability_id}' in pokedex abilities.")
     ability = abilities_db[ability_id]
+    hidden_prefix = "[隐藏] " if is_hidden else ""
     return (
-        f"<strong>{ability['name']['zh']} / {ability['name']['en']}</strong>"
+        f"<strong>{hidden_prefix}{ability['name']['zh']} / {ability['name']['en']}</strong>"
         f" - {ability['description']}"
     )
 
@@ -204,7 +216,8 @@ def render_pokemon(
     title = f"#{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
 
     abilities_html = "\n".join(
-        f"<li>{format_ability(ability_id, abilities_db)}</li>" for ability_id in entry["abilities"]
+        f"<li>{format_ability(ability_entry, abilities_db)}</li>"
+        for ability_entry in entry["abilities"]
     )
 
     lines = [
