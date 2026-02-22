@@ -363,10 +363,10 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
 
 
 def render_personality_section() -> str:
-    headers = ["个体值", "HP", "攻击", "防御", "特攻", "特防", "速度"]
+    headers = ["个体值 % 5", "HP", "攻击", "防御", "特攻", "特防", "速度"]
     rows = [
         [
-            "0/5/10/15/20/25/30",
+            "0",
             "非常喜欢吃东西<br>Loves to eat",
             "以力气大为傲<br>Proud of its power",
             "身体强壮<br>Sturdy body",
@@ -375,7 +375,7 @@ def render_personality_section() -> str:
             "喜欢比谁跑得快<br>Likes to run",
         ],
         [
-            "1/6/11/16/21/26/31",
+            "1",
             "经常睡午觉<br>Takes plenty of siestas",
             "喜欢胡闹<br>Likes to thrash about",
             "抗打能力强<br>Capable of taking hits",
@@ -384,7 +384,7 @@ def render_personality_section() -> str:
             "对声音敏感<br>Alert to sounds",
         ],
         [
-            "2/7/12/17/22/27",
+            "2",
             "常常打瞌睡<br>Nods off a lot",
             "有点容易生气<br>A little quick tempered",
             "顽强不屈<br>Highly persistent",
@@ -393,7 +393,7 @@ def render_personality_section() -> str:
             "冒冒失失<br>Impetuous and silly",
         ],
         [
-            "3/8/13/18/23/28",
+            "3",
             "经常乱扔东西<br>Scatters things often",
             "喜欢打架<br>Likes to fight",
             "能吃苦耐劳<br>Good endurance",
@@ -402,7 +402,7 @@ def render_personality_section() -> str:
             "有点容易得意忘形<br>Somewhat of a clown",
         ],
         [
-            "4/9/14/19/24/29",
+            "4",
             "喜欢悠然自在<br>Likes to relax",
             "血气方刚<br>Quick tempered",
             "善于忍耐<br>Good perseverance",
@@ -414,7 +414,7 @@ def render_personality_section() -> str:
 
     lines = [
         "<h2>个性 / Personality</h2>",
-        "<p>个性由最高的个体值决定，参考下表</p>",
+        "<p>个性由最高的个体值决定，个体值的范围是0-31，参考下表</p>",
         "<table>",
         "<tr>",
     ]
