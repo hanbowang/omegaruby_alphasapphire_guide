@@ -30,10 +30,10 @@ def format_moves_table(
         "<nobr>特殊效果</nobr>",
         "<nobr>属性</nobr>",
         "<nobr>分类</nobr>",
-        "<nobr>类别</nobr>",
         "<nobr>威力</nobr>",
         "<nobr>命中</nobr>",
         "<nobr>PP</nobr>",
+        "<nobr>类别</nobr>",
         "<nobr>表演</nobr>",
         "<nobr>妨害</nobr>",
     ]
@@ -74,10 +74,10 @@ def format_moves_table(
             move.get("effect", ""),
             f"<nobr>{types_db[type_id]['name']['zh']}</nobr>",
             f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>",
-            contest_category,
             move["power"],
             move["accuracy"],
             move["pp"],
+            contest_category,
             move["appeal"],
             move["jam"],
         ]
