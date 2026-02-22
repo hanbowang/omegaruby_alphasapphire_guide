@@ -41,7 +41,7 @@
     "power": "40",
     "accuracy": "100",
     "pp": "30",
-    "appeal": "2",
+    "appeal": "3",
     "jam": "0",
     "effect": "先制度+1，通常可先手",
     "contest_category": "帅气"
@@ -57,7 +57,7 @@
     "power": "40",
     "accuracy": "100",
     "pp": "35",
-    "appeal": "3",
+    "appeal": "4",
     "jam": "0",
     "contest_category": "强壮"
   },
@@ -72,7 +72,7 @@
     "power": "40",
     "accuracy": "100",
     "pp": "25",
-    "appeal": "2",
+    "appeal": "4",
     "jam": "0",
     "effect": "10%概率使目标灼伤",
     "contest_category": "可爱"
@@ -88,7 +88,7 @@
     "power": "35",
     "accuracy": "100",
     "pp": "35",
-    "appeal": "2",
+    "appeal": "4",
     "jam": "0",
     "contest_category": "帅气"
   },
@@ -119,7 +119,7 @@
     "accuracy": "100",
     "pp": "40",
     "appeal": "2",
-    "jam": "2",
+    "jam": "0",
     "effect": "令对手的攻击下降1级",
     "contest_category": "可爱"
   },
@@ -149,8 +149,8 @@
     "power": "35",
     "accuracy": "85",
     "pp": "15",
-    "appeal": "2",
-    "jam": "3",
+    "appeal": "3",
+    "jam": "0",
     "effect": "4~5回合束缚并持续造成伤害",
     "contest_category": "美丽"
   },
@@ -213,8 +213,8 @@
     "power": "—",
     "accuracy": "100",
     "pp": "15",
-    "appeal": "1",
-    "jam": "3",
+    "appeal": "3",
+    "jam": "0",
     "effect": "令目标命中率下降1级",
     "contest_category": "可爱"
   },
