@@ -291,7 +291,6 @@ def render_html(content_sections: list[str]) -> str:
             "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
             render_natures_section(),
             "<h2>图鉴 / Pokédex</h2>",
-            "<blockquote>本章节为首版骨架，展示图鉴条目结构。后续可扩展为完整全国图鉴与招式来源。</blockquote>",
             *content_sections,
             "</body>",
             "</html>",
