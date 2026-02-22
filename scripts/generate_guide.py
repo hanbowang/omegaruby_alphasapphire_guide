@@ -28,6 +28,16 @@ def render_css() -> str:
             "table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
             "th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
             "th { background: #f6f8fa; white-space: nowrap; }",
+            ".ta-center { text-align: center; }",
+            ".va-middle { vertical-align: middle; }",
+            ".nowrap { white-space: nowrap; }",
+            ".cell-type, .cell-category, .cell-contest { background: var(--cell-bg, transparent); }",
+            ".text-type { color: var(--text-color, inherit); }",
+            ".table-scroll { overflow-x: auto; }",
+            ".type-chart th.cell-type, .natures-table th, .personality-table th, .moves-table th { background: #f6f8fa; }",
+            ".type-chart .multiplier-2x { background: #b7eb8f; }",
+            ".type-chart .multiplier-half { background: #ffb3b3; }",
+            ".type-chart .multiplier-0x { background: #4a4a4a; color: #ffffff; }",
             "blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
             "@media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
             "",
@@ -47,29 +57,30 @@ def format_moves_table(
     center_vertical_only_indices = {1, 2}
 
     header_cells = [
-        "<nobr>等级</nobr>",
-        "<nobr>招式</nobr>",
-        "<nobr>特殊效果</nobr>",
-        "<nobr>属性</nobr>",
-        "<nobr>分类</nobr>",
-        "<nobr>威力</nobr>",
-        "<nobr>命中</nobr>",
-        "<nobr>PP</nobr>",
-        "<nobr>类别</nobr>",
-        "<nobr>表演</nobr>",
-        "<nobr>妨害</nobr>",
+        "<span class='nowrap'>等级</span>",
+        "<span class='nowrap'>招式</span>",
+        "<span class='nowrap'>特殊效果</span>",
+        "<span class='nowrap'>属性</span>",
+        "<span class='nowrap'>分类</span>",
+        "<span class='nowrap'>威力</span>",
+        "<span class='nowrap'>命中</span>",
+        "<span class='nowrap'>PP</span>",
+        "<span class='nowrap'>类别</span>",
+        "<span class='nowrap'>表演</span>",
+        "<span class='nowrap'>妨害</span>",
     ]
     header_row = []
     for i, cell in enumerate(header_cells):
-        style = ""
+        classes = []
         if i in center_both_indices:
-            style = " style='text-align:center; vertical-align:middle;'"
+            classes.extend(["ta-center", "va-middle"])
         elif i in center_vertical_only_indices:
-            style = " style='vertical-align:middle;'"
-        header_row.append(f"<th{style}>{cell}</th>")
+            classes.append("va-middle")
+        class_attr = f" class='{' '.join(classes)}'" if classes else ""
+        header_row.append(f"<th{class_attr}>{cell}</th>")
 
     lines = [
-        "<table>",
+        "<table class='moves-table'>",
         "<tr>" + "".join(header_row) + "</tr>",
     ]
 
@@ -89,7 +100,7 @@ def format_moves_table(
 
         contest_category_id = move.get("contest_category_id")
         if contest_category_id is None:
-            contest_category = "<nobr>—</nobr>"
+            contest_category = "<span class='nowrap'>—</span>"
             contest_category_color = None
         else:
             if contest_category_id not in contest_categories_db:
@@ -97,7 +108,7 @@ def format_moves_table(
                     f"Unknown contest_category_id '{contest_category_id}' in moves database."
                 )
             contest_category = (
-                f"<nobr>{contest_categories_db[contest_category_id]['name']['zh']}</nobr>"
+                f"<span class='nowrap'>{contest_categories_db[contest_category_id]['name']['zh']}</span>"
             )
             contest_category_color = contest_categories_db[contest_category_id].get("color")
 
@@ -113,10 +124,10 @@ def format_moves_table(
 
         cells = [
             learn["level"],
-            f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>",
+            f"<span class='nowrap'>{move['name']['zh']}</span><br><span class='nowrap'>{move['name']['en']}</span>",
             move.get("effect", ""),
-            f"<nobr>{types_db[type_id]['name']['zh']}</nobr>",
-            f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>",
+            f"<span class='nowrap'>{types_db[type_id]['name']['zh']}</span>",
+            f"<span class='nowrap'>{categories_db[category_id]['name']['zh']}</span>",
             displayed_power,
             move["accuracy"],
             move["pp"],
@@ -126,24 +137,25 @@ def format_moves_table(
         ]
         row_cells = []
         for i, cell in enumerate(cells):
-            styles = []
+            classes = []
+            style_attr = ""
             if i in center_both_indices:
-                styles.append("text-align:center")
-                styles.append("vertical-align:middle")
+                classes.extend(["ta-center", "va-middle"])
             elif i in center_vertical_only_indices:
-                styles.append("vertical-align:middle")
+                classes.append("va-middle")
 
             if i == 3:
-                styles.append(f"background:{type_color}")
+                classes.append("cell-type")
+                style_attr = f" style='--cell-bg: {type_color};'"
             if i == 4:
-                styles.append(f"background:{category_color}")
+                classes.append("cell-category")
+                style_attr = f" style='--cell-bg: {category_color};'"
             if i == 8 and contest_category_color:
-                styles.append(f"background:{contest_category_color}")
+                classes.append("cell-contest")
+                style_attr = f" style='--cell-bg: {contest_category_color};'"
 
-            if styles:
-                row_cells.append(f"<td style='{'; '.join(styles)};'>{cell}</td>")
-            else:
-                row_cells.append(f"<td>{cell}</td>")
+            class_attr = f" class='{' '.join(classes)}'" if classes else ""
+            row_cells.append(f"<td{class_attr}{style_attr}>{cell}</td>")
         lines.append("<tr>" + "".join(row_cells) + "</tr>")
 
     lines.append("</table>")
@@ -205,7 +217,7 @@ def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:
         if raw_type in types_db:
             type_name = types_db[raw_type]["name"]["zh"]
             type_color = types_db[raw_type].get("color", "inherit")
-            zh_types.append(f"<span style='color:{type_color};'>{type_name}</span>")
+            zh_types.append(f"<span class='text-type' style='--text-color: {type_color};'>{type_name}</span>")
             continue
 
         if "/" in raw_type:
@@ -286,11 +298,11 @@ def render_natures_section() -> str:
 
     lines = [
         "<h2>性格 / Natures</h2>",
-        "<table>",
+        "<table class='natures-table'>",
         "<tr>",
-        "<th style='text-align:center; vertical-align:middle;'>↑\↓</th>",
+        "<th class='ta-center va-middle'>↑\↓</th>",
         *[
-            f"<th style='text-align:center; vertical-align:middle;'>{header}</th>"
+            f"<th class='ta-center va-middle'>{header}</th>"
             for header in column_headers
         ],
         "</tr>",
@@ -298,10 +310,8 @@ def render_natures_section() -> str:
 
     for row_header, row in zip(row_headers, rows):
         lines.append("<tr>")
-        lines.append(f"<th style='text-align:center; vertical-align:middle;'>{row_header}</th>")
-        lines.extend(
-            f"<td style='text-align:center; vertical-align:middle;'>{nature}</td>" for nature in row
-        )
+        lines.append(f"<th class='ta-center va-middle'>{row_header}</th>")
+        lines.extend(f"<td class='ta-center va-middle'>{nature}</td>" for nature in row)
         lines.append("</tr>")
 
     lines.append("</table>")
@@ -318,13 +328,13 @@ def format_multiplier(multiplier: float) -> str:
     return "1×"
 
 
-def get_multiplier_cell_style(multiplier: float) -> str:
+def get_multiplier_cell_class(multiplier: float) -> str:
     if multiplier == 2:
-        return "background:#b7eb8f;"
+        return "multiplier-2x"
     if multiplier == 0.5:
-        return "background:#ffb3b3;"
+        return "multiplier-half"
     if multiplier == 0:
-        return "background:#4a4a4a; color:#ffffff;"
+        return "multiplier-0x"
     return ""
 
 
@@ -359,17 +369,17 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
     lines = [
         "<h2>属性相克表 / Type Effectiveness</h2>",
         "<p>行表示攻击招式属性，列表示防御方宝可梦属性。</p>",
-        "<div style='overflow-x:auto;'>",
-        "<table>",
+        "<div class='table-scroll'>",
+        "<table class='type-chart'>",
         "<tr>",
-        "<th style='text-align:center; vertical-align:middle;'>攻\\守</th>",
+        "<th class='ta-center va-middle'>攻\\守</th>",
     ]
 
     for defender_type in ordered_types:
         defender = types_db[defender_type]
         lines.append(
-            "<th style='text-align:center; vertical-align:middle; "
-            f"background:{defender.get('color', '#f6f8fa')};'>{defender['name']['zh']}</th>"
+            "<th class='ta-center va-middle cell-type' "
+            f"style='--cell-bg: {defender.get('color', '#f6f8fa')};'>{defender['name']['zh']}</th>"
         )
 
     lines.append("</tr>")
@@ -378,8 +388,8 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
         attacker = types_db[attacker_type]
         lines.append("<tr>")
         lines.append(
-            "<th style='text-align:center; vertical-align:middle; "
-            f"background:{attacker.get('color', '#f6f8fa')};'>{attacker['name']['zh']}</th>"
+            "<th class='ta-center va-middle cell-type' "
+            f"style='--cell-bg: {attacker.get('color', '#f6f8fa')};'>{attacker['name']['zh']}</th>"
         )
 
         attack_multipliers = attacker["attack_multipliers"]
@@ -389,13 +399,12 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
                     f"Missing multiplier: attack '{attacker_type}' -> defend '{defender_type}'."
                 )
             multiplier = attack_multipliers[defender_type]
-            cell_style = get_multiplier_cell_style(multiplier)
-            style_parts = ["text-align:center", "vertical-align:middle"]
-            if cell_style:
-                style_parts.append(cell_style.rstrip(";"))
+            cell_class = get_multiplier_cell_class(multiplier)
+            classes = "ta-center va-middle"
+            if cell_class:
+                classes += f" {cell_class}"
             lines.append(
-                f"<td style='{'; '.join(style_parts)};'>"
-                f"{format_multiplier(multiplier)}</td>"
+                f"<td class='{classes}'>{format_multiplier(multiplier)}</td>"
             )
 
         lines.append("</tr>")
@@ -457,15 +466,15 @@ def render_personality_section() -> str:
     lines = [
         "<h2>个性 / Personality</h2>",
         "<p>个性由最高的个体值决定，个体值的范围是0-31，参考下表</p>",
-        "<table>",
+        "<table class='personality-table'>",
         "<tr>",
     ]
-    lines.extend(f"<th style='text-align:center; vertical-align:middle;'>{header}</th>" for header in headers)
+    lines.extend(f"<th class='ta-center va-middle'>{header}</th>" for header in headers)
     lines.append("</tr>")
 
     for row in rows:
         lines.append("<tr>")
-        lines.extend(f"<td style='text-align:center; vertical-align:middle;'>{cell}</td>" for cell in row)
+        lines.extend(f"<td class='ta-center va-middle'>{cell}</td>" for cell in row)
         lines.append("</tr>")
 
     lines.append("</table>")
