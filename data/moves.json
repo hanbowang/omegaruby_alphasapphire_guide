@@ -98,7 +98,7 @@
       "zh": "撞击",
       "en": "Tackle"
     },
-    "power": "40",
+    "power": "50",
     "accuracy": "100",
     "pp": "35",
     "appeal": "4",
@@ -492,7 +492,7 @@
   {
     "id": "scary-face",
     "name": {
-      "zh": "鬼面",
+      "zh": "可怕面孔",
       "en": "Scary Face"
     },
     "power": "—",
