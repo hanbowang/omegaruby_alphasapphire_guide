@@ -584,21 +584,5 @@
     "type_id": "dark",
     "category_id": "physical",
     "contest_category_id": "tough"
-  },
-  {
-    "id": "yawn",
-    "name": {
-      "zh": "哈欠",
-      "en": "Yawn"
-    },
-    "power": "—",
-    "accuracy": "—",
-    "pp": "10",
-    "appeal": "3",
-    "jam": "0",
-    "effect": "使目标在下回合结束时陷入睡眠状态",
-    "type_id": "normal",
-    "category_id": "status",
-    "contest_category_id": "cute"
   }
 ]

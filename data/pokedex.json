@@ -293,12 +293,8 @@
         "move_id": "sucker-punch"
       },
       {
-        "level": "49",
-        "move_id": "crunch"
-      },
-      {
         "level": "53",
-        "move_id": "yawn"
+        "move_id": "crunch"
       }
     ],
     "abilities": [
