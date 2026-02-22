@@ -40,11 +40,9 @@ def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
 
 
 def render_pokemon(entry: dict, moves_db: dict[str, dict]) -> str:
+    zh_types = " / ".join(type_name.split("/", 1)[0] for type_name in entry["types"])
     lines = [
-        f"### No.{entry['number']} {entry['name']['zh']} / {entry['name']['en']}",
-        "",
-        f"- **属性/Type**：{', '.join(entry['types'])}",
-        f"- **进化/Evolution**：{entry['evolution']['condition']} → {entry['evolution']['to']}",
+        f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {entry['evolution']['to']}",
         "",
         "**招式表/Moves**",
         "",
