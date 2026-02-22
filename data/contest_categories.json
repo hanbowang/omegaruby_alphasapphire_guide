@@ -4,34 +4,39 @@
     "name": {
       "zh": "强壮",
       "en": "Tough"
-    }
+    },
+    "color": "#E7B43D"
   },
   {
     "id": "clever",
     "name": {
       "zh": "聪明",
       "en": "Clever"
-    }
+    },
+    "color": "#9BCE13"
   },
   {
     "id": "beauty",
     "name": {
       "zh": "美丽",
       "en": "Beauty"
-    }
+    },
+    "color": "#51B3DC"
   },
   {
     "id": "cute",
     "name": {
       "zh": "可爱",
       "en": "Cute"
-    }
+    },
+    "color": "#E67091"
   },
   {
     "id": "cool",
     "name": {
       "zh": "帅气",
       "en": "Cool"
-    }
+    },
+    "color": "#BD3A29"
   }
 ]
