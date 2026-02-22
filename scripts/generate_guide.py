@@ -26,9 +26,9 @@ def render_css() -> str:
             "h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
             "p { margin: 0.4rem 0; }",
             "ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }",
-            "table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
-            "th, td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
-            "th { background: #f6f8fa; white-space: nowrap; }",
+            ".guide-table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }",
+            ".guide-table th, .guide-table td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }",
+            ".guide-table th { background: #f6f8fa; white-space: nowrap; }",
             ".ta-center { text-align: center; }",
             ".va-middle { vertical-align: middle; }",
             ".nowrap { white-space: nowrap; }",
@@ -44,10 +44,49 @@ def render_css() -> str:
             "@media (prefers-color-scheme: dark) {",
             "  :root { --cell-bg-default: transparent; --multiplier-2x-bg: #355c2b; --multiplier-half-bg: #6b2f2f; --multiplier-zero-bg: #1f1f1f; --multiplier-zero-text: #f5f5f5; --multiplier-normal-bg: transparent; }",
             "}",
-            "@media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } table { margin: 0.35rem 0; } th, td { padding: 0.2rem 0.3rem; } }",
+            "@media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } .guide-table { margin: 0.35rem 0; } .guide-table th, .guide-table td { padding: 0.2rem 0.3rem; } }",
             "",
         ]
     )
+
+
+def render_table(
+    headers: list[str],
+    rows: list[list[str]],
+    table_class: str,
+    header_cell_class: str,
+    cell_class: str,
+) -> str:
+    lines = [f"<table class='{table_class}'>", "<tr>"]
+    lines.extend(f"<th class='{header_cell_class}'>{header}</th>" for header in headers)
+    lines.append("</tr>")
+
+    for row in rows:
+        lines.append("<tr>")
+        lines.extend(f"<td class='{cell_class}'>{cell}</td>" for cell in row)
+        lines.append("</tr>")
+
+    lines.append("</table>")
+    return "\n".join(lines)
+
+
+def get_moves_header_cell_classes(index: int) -> list[str]:
+    center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
+    center_vertical_only_indices = {1, 2}
+
+    classes: list[str] = []
+    if index in center_both_indices:
+        classes.extend(["ta-center", "va-middle"])
+    elif index in center_vertical_only_indices:
+        classes.append("va-middle")
+    return classes
+
+
+def get_moves_row_cell_classes(index: int) -> list[str]:
+    classes = get_moves_header_cell_classes(index)
+    if index in {3, 4, 8}:
+        classes.append("bg-dynamic")
+    return classes
 
 
 def format_moves_table(
@@ -58,9 +97,6 @@ def format_moves_table(
     contest_categories_db: dict[str, dict],
     pokemon_types: set[str],
 ) -> str:
-    center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
-    center_vertical_only_indices = {1, 2}
-
     header_cells = [
         "<span class='nowrap'>等级</span>",
         "<span class='nowrap'>招式</span>",
@@ -76,16 +112,12 @@ def format_moves_table(
     ]
     header_row = []
     for i, cell in enumerate(header_cells):
-        classes = []
-        if i in center_both_indices:
-            classes.extend(["ta-center", "va-middle"])
-        elif i in center_vertical_only_indices:
-            classes.append("va-middle")
+        classes = get_moves_header_cell_classes(i)
         class_attr = f" class='{' '.join(classes)}'" if classes else ""
         header_row.append(f"<th{class_attr}>{cell}</th>")
 
     lines = [
-        "<table class='moves-table'>",
+        "<table class='guide-table moves-table'>",
         "<tr>" + "".join(header_row) + "</tr>",
     ]
 
@@ -142,21 +174,13 @@ def format_moves_table(
         ]
         row_cells = []
         for i, cell in enumerate(cells):
-            classes = []
+            classes = get_moves_row_cell_classes(i)
             style_attr = ""
-            if i in center_both_indices:
-                classes.extend(["ta-center", "va-middle"])
-            elif i in center_vertical_only_indices:
-                classes.append("va-middle")
-
             if i == 3:
-                classes.append("bg-dynamic")
                 style_attr = f" style='--cell-bg: {type_color};'"
             if i == 4:
-                classes.append("bg-dynamic")
                 style_attr = f" style='--cell-bg: {category_color};'"
             if i == 8 and contest_category_color:
-                classes.append("bg-dynamic")
                 style_attr = f" style='--cell-bg: {contest_category_color};'"
 
             class_attr = f" class='{' '.join(classes)}'" if classes else ""
@@ -301,26 +325,19 @@ def render_natures_section() -> str:
         ["温和/Calm", "温顺/Gentle", "自大/Sassy", "慎重/Careful", "浮躁/Quirky"],
     ]
 
-    lines = [
+    table_headers = ["↑\\↓", *column_headers]
+    table_rows = [[row_header, *row] for row_header, row in zip(row_headers, rows)]
+
+    return "\n".join([
         "<h2>性格 / Natures</h2>",
-        "<table class='natures-table'>",
-        "<tr>",
-        "<th class='ta-center va-middle'>↑\↓</th>",
-        *[
-            f"<th class='ta-center va-middle'>{header}</th>"
-            for header in column_headers
-        ],
-        "</tr>",
-    ]
-
-    for row_header, row in zip(row_headers, rows):
-        lines.append("<tr>")
-        lines.append(f"<th class='ta-center va-middle'>{row_header}</th>")
-        lines.extend(f"<td class='ta-center va-middle'>{nature}</td>" for nature in row)
-        lines.append("</tr>")
-
-    lines.append("</table>")
-    return "\n".join(lines)
+        render_table(
+            table_headers,
+            table_rows,
+            "guide-table natures-table",
+            "ta-center va-middle",
+            "ta-center va-middle",
+        ),
+    ])
 
 
 def format_multiplier(multiplier: float) -> str:
@@ -375,7 +392,7 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
         "<h2>属性相克表 / Type Effectiveness</h2>",
         "<p>行表示攻击招式属性，列表示防御方宝可梦属性。</p>",
         "<div class='table-scroll'>",
-        "<table class='type-chart'>",
+        "<table class='guide-table type-chart'>",
         "<tr>",
         "<th class='ta-center va-middle'>攻\\守</th>",
     ]
@@ -469,22 +486,17 @@ def render_personality_section() -> str:
         ],
     ]
 
-    lines = [
+    return "\n".join([
         "<h2>个性 / Personality</h2>",
         "<p>个性由最高的个体值决定，个体值的范围是0-31，参考下表</p>",
-        "<table class='personality-table'>",
-        "<tr>",
-    ]
-    lines.extend(f"<th class='ta-center va-middle'>{header}</th>" for header in headers)
-    lines.append("</tr>")
-
-    for row in rows:
-        lines.append("<tr>")
-        lines.extend(f"<td class='ta-center va-middle'>{cell}</td>" for cell in row)
-        lines.append("</tr>")
-
-    lines.append("</table>")
-    return "\n".join(lines)
+        render_table(
+            headers,
+            rows,
+            "guide-table personality-table",
+            "ta-center va-middle",
+            "ta-center va-middle",
+        ),
+    ])
 
 
 def render_html(content_sections: list[str], types_db: dict[str, dict]) -> str:
