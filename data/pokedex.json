@@ -10,7 +10,7 @@
     ],
     "evolution": {
       "condition": "Lv.16",
-      "to": "力壮鸡 / Combusken"
+      "to_number": "256"
     },
     "moves": [
       {
