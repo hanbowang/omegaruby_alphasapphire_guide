@@ -24,6 +24,9 @@ def format_moves_table(
     categories_db: dict[str, dict],
     contest_categories_db: dict[str, dict],
 ) -> str:
+    center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
+    center_vertical_only_indices = {2}
+
     header_cells = [
         "<nobr>等级</nobr>",
         "<nobr>招式</nobr>",
@@ -37,9 +40,18 @@ def format_moves_table(
         "<nobr>表演</nobr>",
         "<nobr>妨害</nobr>",
     ]
+    header_row = []
+    for i, cell in enumerate(header_cells):
+        style = ""
+        if i in center_both_indices:
+            style = " style='text-align:center; vertical-align:middle;'"
+        elif i in center_vertical_only_indices:
+            style = " style='vertical-align:middle;'"
+        header_row.append(f"<th{style}>{cell}</th>")
+
     lines = [
         "<table>",
-        "<tr>" + "".join(f"<th>{cell}</th>" for cell in header_cells) + "</tr>",
+        "<tr>" + "".join(header_row) + "</tr>",
     ]
 
     for learn in learnset:
@@ -84,8 +96,18 @@ def format_moves_table(
         ]
         row_cells = []
         for i, cell in enumerate(cells):
+            styles = []
+            if i in center_both_indices:
+                styles.append("text-align:center")
+                styles.append("vertical-align:middle")
+            elif i in center_vertical_only_indices:
+                styles.append("vertical-align:middle")
+
             if i == 3:
-                row_cells.append(f"<td style='background:{type_color};'>{cell}</td>")
+                styles.append(f"background:{type_color}")
+
+            if styles:
+                row_cells.append(f"<td style='{'; '.join(styles)};'>{cell}</td>")
             else:
                 row_cells.append(f"<td>{cell}</td>")
         lines.append("<tr>" + "".join(row_cells) + "</tr>")
