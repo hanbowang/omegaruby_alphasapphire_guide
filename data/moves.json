@@ -128,5 +128,110 @@
     "pp": "25",
     "appeal": "2",
     "jam": "0"
+  },
+  {
+    "id": "fire-spin",
+    "name": {
+      "zh": "火焰旋涡",
+      "en": "Fire Spin"
+    },
+    "type": "火/Fire",
+    "category": "特殊/Special",
+    "power": "35",
+    "accuracy": "85",
+    "pp": "15",
+    "appeal": "2",
+    "jam": "3",
+    "effect": "4~5回合束缚并持续造成伤害。"
+  },
+  {
+    "id": "flamethrower",
+    "name": {
+      "zh": "喷射火焰",
+      "en": "Flamethrower"
+    },
+    "type": "火/Fire",
+    "category": "特殊/Special",
+    "power": "90",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "4",
+    "jam": "0",
+    "effect": "10%概率使目标灼伤。"
+  },
+  {
+    "id": "focus-energy",
+    "name": {
+      "zh": "聚气",
+      "en": "Focus Energy"
+    },
+    "type": "一般/Normal",
+    "category": "变化/Status",
+    "power": "—",
+    "accuracy": "—",
+    "pp": "30",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "提高击中要害率。"
+  },
+  {
+    "id": "mirror-move",
+    "name": {
+      "zh": "鹦鹉学舌",
+      "en": "Mirror Move"
+    },
+    "type": "飞行/Flying",
+    "category": "变化/Status",
+    "power": "—",
+    "accuracy": "—",
+    "pp": "20",
+    "appeal": "1",
+    "jam": "0",
+    "effect": "使出对手上一次使用的招式。"
+  },
+  {
+    "id": "sand-attack",
+    "name": {
+      "zh": "泼沙",
+      "en": "Sand Attack"
+    },
+    "type": "地面/Ground",
+    "category": "变化/Status",
+    "power": "—",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "1",
+    "jam": "3",
+    "effect": "令目标命中率下降1级。"
+  },
+  {
+    "id": "slash",
+    "name": {
+      "zh": "劈开",
+      "en": "Slash"
+    },
+    "type": "一般/Normal",
+    "category": "物理/Physical",
+    "power": "70",
+    "accuracy": "100",
+    "pp": "20",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "击中要害率较高。"
+  },
+  {
+    "id": "flame-burst",
+    "name": {
+      "zh": "烈焰溅射",
+      "en": "Flame Burst"
+    },
+    "type": "火/Fire",
+    "category": "特殊/Special",
+    "power": "70",
+    "accuracy": "100",
+    "pp": "15",
+    "appeal": "3",
+    "jam": "0",
+    "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害。"
   }
 ]

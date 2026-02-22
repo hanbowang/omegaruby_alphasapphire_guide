@@ -45,16 +45,52 @@
     },
     "moves": [
       {
-        "level": "1",
+        "level": "-",
         "move_id": "scratch"
       },
       {
-        "level": "7",
+        "level": "-",
+        "move_id": "growl"
+      },
+      {
+        "level": "5",
         "move_id": "ember"
       },
       {
         "level": "10",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "14",
         "move_id": "peck"
+      },
+      {
+        "level": "19",
+        "move_id": "fire-spin"
+      },
+      {
+        "level": "23",
+        "move_id": "quick-attack"
+      },
+      {
+        "level": "28",
+        "move_id": "flame-burst"
+      },
+      {
+        "level": "32",
+        "move_id": "focus-energy"
+      },
+      {
+        "level": "37",
+        "move_id": "slash"
+      },
+      {
+        "level": "41",
+        "move_id": "mirror-move"
+      },
+      {
+        "level": "46",
+        "move_id": "flamethrower"
       }
     ],
     "abilities": [
