@@ -1,0 +1,26 @@
+[
+  {
+    "id": "overgrow",
+    "name": {
+      "zh": "茂盛",
+      "en": "Overgrow"
+    },
+    "description": "HP 小于 1/3 时，草属性招式的威力增长为 1.5 倍"
+  },
+  {
+    "id": "blaze",
+    "name": {
+      "zh": "猛火",
+      "en": "Blaze"
+    },
+    "description": "HP 小于 1/3 时，火属性招式的威力增长为 1.5 倍"
+  },
+  {
+    "id": "torrent",
+    "name": {
+      "zh": "激流",
+      "en": "Torrent"
+    },
+    "description": "HP 小于 1/3 时，水属性招式的威力增长为 1.5 倍"
+  }
+]
