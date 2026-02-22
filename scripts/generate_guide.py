@@ -41,11 +41,7 @@ def format_moves_table(
 
         move_name = f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>"
         effect = move.get("effect", "")
-        effect_text = (
-            "{effect}"
-            if effect
-            else ""
-        )
+        effect_text = effect if effect else ""
         type_name = f"<nobr>{types_db[type_id]['name']['zh']}</nobr>"
         category_id = move["category_id"]
         if category_id not in categories_db:
