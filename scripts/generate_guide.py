@@ -77,13 +77,28 @@ def format_ability(ability_id: str, abilities_db: dict[str, dict]) -> str:
     return f"{ability['name']['zh']} / {ability['name']['en']} - {ability['description']}"
 
 
+def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:
+    zh_types = []
+    for raw_type in entry["types"]:
+        if raw_type in types_db:
+            zh_types.append(types_db[raw_type]["name"]["zh"])
+            continue
+
+        if "/" in raw_type:
+            zh_types.append(raw_type.split("/", 1)[0])
+            continue
+
+        raise KeyError(f"Unknown type '{raw_type}' in pokedex entry #{entry['number']}.")
+    return " / ".join(zh_types)
+
+
 def render_pokemon(
     entry: dict,
     moves_db: dict[str, dict],
     abilities_db: dict[str, dict],
     types_db: dict[str, dict],
 ) -> str:
-    zh_types = " / ".join(type_name.split("/", 1)[0] for type_name in entry["types"])
+    zh_types = format_pokemon_types(entry, types_db)
     abilities_lines = [
         f"- {format_ability(ability_id, abilities_db)}" for ability_id in entry["abilities"]
     ]

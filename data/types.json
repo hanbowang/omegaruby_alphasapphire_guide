@@ -14,13 +14,6 @@
     }
   },
   {
-    "id": "flying",
-    "name": {
-      "zh": "飞行",
-      "en": "Flying"
-    }
-  },
-  {
     "id": "water",
     "name": {
       "zh": "水",
@@ -28,10 +21,24 @@
     }
   },
   {
+    "id": "grass",
+    "name": {
+      "zh": "草",
+      "en": "Grass"
+    }
+  },
+  {
     "id": "ground",
     "name": {
       "zh": "地面",
       "en": "Ground"
+    }
+  },
+  {
+    "id": "flying",
+    "name": {
+      "zh": "飞行",
+      "en": "Flying"
     }
   }
 ]

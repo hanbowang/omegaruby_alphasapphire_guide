@@ -6,7 +6,7 @@
       "en": "Treecko"
     },
     "types": [
-      "草/Grass"
+      "grass"
     ],
     "evolution": {
       "condition": "Lv.16",
@@ -37,7 +37,7 @@
       "en": "Torchic"
     },
     "types": [
-      "火/Fire"
+      "fire"
     ],
     "evolution": {
       "condition": "Lv.16",
@@ -104,7 +104,7 @@
       "en": "Mudkip"
     },
     "types": [
-      "水/Water"
+      "water"
     ],
     "evolution": {
       "condition": "Lv.16",
