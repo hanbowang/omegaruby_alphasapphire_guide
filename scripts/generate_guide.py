@@ -266,6 +266,87 @@ def render_natures_section() -> str:
     return "\n".join(lines)
 
 
+def format_multiplier(multiplier: float) -> str:
+    if multiplier == 0:
+        return "0×"
+    if multiplier == 0.5:
+        return "½×"
+    if multiplier == 2:
+        return "2×"
+    return "1×"
+
+
+def render_type_chart_section(types_db: dict[str, dict]) -> str:
+    ordered_types = [
+        "normal",
+        "fighting",
+        "flying",
+        "poison",
+        "ground",
+        "rock",
+        "bug",
+        "ghost",
+        "steel",
+        "fire",
+        "water",
+        "grass",
+        "electric",
+        "psychic",
+        "ice",
+        "dragon",
+        "dark",
+        "fairy",
+    ]
+
+    for type_id in ordered_types:
+        if type_id not in types_db:
+            raise KeyError(f"Unknown type_id '{type_id}' in types database.")
+        if "attack_multipliers" not in types_db[type_id]:
+            raise KeyError(f"Missing attack_multipliers for type_id '{type_id}'.")
+
+    lines = [
+        "<h2>属性相克表 / Type Effectiveness</h2>",
+        "<p>行表示攻击招式属性，列表示防御方宝可梦属性。</p>",
+        "<div style='overflow-x:auto;'>",
+        "<table>",
+        "<tr>",
+        "<th style='text-align:center; vertical-align:middle;'>攻\\守</th>",
+    ]
+
+    for defender_type in ordered_types:
+        defender = types_db[defender_type]
+        lines.append(
+            "<th style='text-align:center; vertical-align:middle; "
+            f"background:{defender.get('color', '#f6f8fa')};'>{defender['name']['zh']}</th>"
+        )
+
+    lines.append("</tr>")
+
+    for attacker_type in ordered_types:
+        attacker = types_db[attacker_type]
+        lines.append("<tr>")
+        lines.append(
+            "<th style='text-align:center; vertical-align:middle; "
+            f"background:{attacker.get('color', '#f6f8fa')};'>{attacker['name']['zh']}</th>"
+        )
+
+        attack_multipliers = attacker["attack_multipliers"]
+        for defender_type in ordered_types:
+            if defender_type not in attack_multipliers:
+                raise KeyError(
+                    f"Missing multiplier: attack '{attacker_type}' -> defend '{defender_type}'."
+                )
+            lines.append(
+                "<td style='text-align:center; vertical-align:middle;'>"
+                f"{format_multiplier(attack_multipliers[defender_type])}</td>"
+            )
+
+        lines.append("</tr>")
+
+    lines.extend(["</table>", "</div>"])
+    return "\n".join(lines)
+
+
 def render_personality_section() -> str:
     headers = ["个体值", "HP", "攻击", "防御", "特攻", "特防", "速度"]
     rows = [
@@ -334,7 +415,7 @@ def render_personality_section() -> str:
     return "\n".join(lines)
 
 
-def render_html(content_sections: list[str]) -> str:
+def render_html(content_sections: list[str], types_db: dict[str, dict]) -> str:
     return "\n".join(
         [
             "<!doctype html>",
@@ -357,6 +438,7 @@ def render_html(content_sections: list[str]) -> str:
             "</head>",
             "<body>",
             "<h1>宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide</h1>",
+            render_type_chart_section(types_db),
             render_natures_section(),
             render_personality_section(),
             "<h2>图鉴 / Pokédex</h2>",
@@ -390,7 +472,7 @@ def main() -> None:
         for pokemon in pokedex
     ]
 
-    OUTPUT_HTML_FILE.write_text(render_html(sections), encoding="utf-8")
+    OUTPUT_HTML_FILE.write_text(render_html(sections, types_db), encoding="utf-8")
 
 
 if __name__ == "__main__":
