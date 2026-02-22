@@ -1,0 +1,83 @@
+[
+  {
+    "id": "pound",
+    "name": {"zh": "拍击", "en": "Pound"},
+    "type": "一般/Normal",
+    "category": "物理/Physical",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "35"
+  },
+  {
+    "id": "leer",
+    "name": {"zh": "瞪眼", "en": "Leer"},
+    "type": "一般/Normal",
+    "category": "变化/Status",
+    "power": "—",
+    "accuracy": "100",
+    "pp": "30"
+  },
+  {
+    "id": "quick-attack",
+    "name": {"zh": "电光一闪", "en": "Quick Attack"},
+    "type": "一般/Normal",
+    "category": "物理/Physical",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "30"
+  },
+  {
+    "id": "scratch",
+    "name": {"zh": "抓", "en": "Scratch"},
+    "type": "一般/Normal",
+    "category": "物理/Physical",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "35"
+  },
+  {
+    "id": "ember",
+    "name": {"zh": "火花", "en": "Ember"},
+    "type": "火/Fire",
+    "category": "特殊/Special",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "25"
+  },
+  {
+    "id": "peck",
+    "name": {"zh": "啄", "en": "Peck"},
+    "type": "飞行/Flying",
+    "category": "物理/Physical",
+    "power": "35",
+    "accuracy": "100",
+    "pp": "35"
+  },
+  {
+    "id": "tackle",
+    "name": {"zh": "撞击", "en": "Tackle"},
+    "type": "一般/Normal",
+    "category": "物理/Physical",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "35"
+  },
+  {
+    "id": "growl",
+    "name": {"zh": "叫声", "en": "Growl"},
+    "type": "一般/Normal",
+    "category": "变化/Status",
+    "power": "—",
+    "accuracy": "100",
+    "pp": "40"
+  },
+  {
+    "id": "water-gun",
+    "name": {"zh": "水枪", "en": "Water Gun"},
+    "type": "水/Water",
+    "category": "特殊/Special",
+    "power": "40",
+    "accuracy": "100",
+    "pp": "25"
+  }
+]

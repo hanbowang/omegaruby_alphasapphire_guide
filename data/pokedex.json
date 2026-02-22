@@ -1,0 +1,53 @@
+[
+  {
+    "number": "252",
+    "name": {
+      "zh": "木守宫",
+      "en": "Treecko"
+    },
+    "types": ["草/Grass"],
+    "evolution": {
+      "condition": "Lv.16",
+      "to": "森林蜥蜴 / Grovyle"
+    },
+    "moves": [
+      {"level": "1", "move_id": "pound"},
+      {"level": "6", "move_id": "leer"},
+      {"level": "11", "move_id": "quick-attack"}
+    ]
+  },
+  {
+    "number": "255",
+    "name": {
+      "zh": "火稚鸡",
+      "en": "Torchic"
+    },
+    "types": ["火/Fire"],
+    "evolution": {
+      "condition": "Lv.16",
+      "to": "力壮鸡 / Combusken"
+    },
+    "moves": [
+      {"level": "1", "move_id": "scratch"},
+      {"level": "7", "move_id": "ember"},
+      {"level": "10", "move_id": "peck"}
+    ]
+  },
+  {
+    "number": "258",
+    "name": {
+      "zh": "水跃鱼",
+      "en": "Mudkip"
+    },
+    "types": ["水/Water"],
+    "evolution": {
+      "condition": "Lv.16",
+      "to": "沼跃鱼 / Marshtomp"
+    },
+    "moves": [
+      {"level": "1", "move_id": "tackle"},
+      {"level": "4", "move_id": "growl"},
+      {"level": "10", "move_id": "water-gun"}
+    ]
+  }
+]
