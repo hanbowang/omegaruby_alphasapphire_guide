@@ -23,6 +23,7 @@ def format_moves_table(
     types_db: dict[str, dict],
     categories_db: dict[str, dict],
     contest_categories_db: dict[str, dict],
+    pokemon_types: set[str],
 ) -> str:
     center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
     center_vertical_only_indices = {1, 2}
@@ -84,13 +85,21 @@ def format_moves_table(
 
         type_color = types_db[type_id].get("color", "#FFFFFF")
         category_color = categories_db[category_id].get("color", "#FFFFFF")
+        displayed_power = move["power"]
+        if (
+            type_id in pokemon_types
+            and isinstance(move["power"], str)
+            and move["power"].isdigit()
+        ):
+            displayed_power = f"<strong>{int(move['power']) * 3 // 2}</strong>"
+
         cells = [
             learn["level"],
             f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>",
             move.get("effect", ""),
             f"<nobr>{types_db[type_id]['name']['zh']}</nobr>",
             f"<nobr>{categories_db[category_id]['name']['zh']}</nobr>",
-            move["power"],
+            displayed_power,
             move["accuracy"],
             move["pp"],
             contest_category,
@@ -213,6 +222,7 @@ def render_pokemon(
         evolution_text = f"{evolution['condition']} -> {evolution_to}"
 
     zh_types = format_pokemon_types(entry, types_db)
+    pokemon_types = {pokemon_type for pokemon_type in entry["types"] if pokemon_type in types_db}
     title = f"#{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types}"
 
     abilities_html = "\n".join(
@@ -239,6 +249,7 @@ def render_pokemon(
             types_db,
             categories_db,
             contest_categories_db,
+            pokemon_types,
         ),
     ])
     return "\n".join(lines)
