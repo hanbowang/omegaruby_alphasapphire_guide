@@ -126,18 +126,29 @@ def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:
 
 def render_pokemon(
     entry: dict,
+    pokedex_db: dict[str, dict],
     moves_db: dict[str, dict],
     abilities_db: dict[str, dict],
     types_db: dict[str, dict],
     categories_db: dict[str, dict],
     contest_categories_db: dict[str, dict],
 ) -> str:
+    evo_target_number = entry["evolution"]["to_number"]
+    evo_target = pokedex_db.get(evo_target_number)
+    if evo_target is None:
+        evolution_to = f"#{evo_target_number}"
+    else:
+        evolution_to = (
+            f"{evo_target['name']['zh']} / {evo_target['name']['en']}"
+            f" (#{evo_target_number})"
+        )
+
     zh_types = format_pokemon_types(entry, types_db)
     abilities_lines = [
         f"- {format_ability(ability_id, abilities_db)}" for ability_id in entry["abilities"]
     ]
     lines = [
-        f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {entry['evolution']['to']}",
+        f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {evolution_to}",
         "",
         "**特性**：",
         *abilities_lines,
@@ -158,6 +169,7 @@ def render_pokemon(
 
 def main() -> None:
     pokedex = json.loads(POKEDEX_FILE.read_text(encoding="utf-8"))
+    pokedex_db = {pokemon["number"]: pokemon for pokemon in pokedex}
     moves_db = load_moves_db()
     abilities_db = load_abilities_db()
     types_db = load_types_db()
@@ -177,6 +189,7 @@ def main() -> None:
         sections.append(
             render_pokemon(
                 pokemon,
+                pokedex_db,
                 moves_db,
                 abilities_db,
                 types_db,
