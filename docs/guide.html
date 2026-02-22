@@ -8,7 +8,7 @@
     body { font-family: sans-serif; line-height: 1.6; margin: 2rem auto; max-width: 1100px; padding: 0 1rem; }
     table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
     th, td { border: 1px solid #d0d7de; padding: 0.5rem; vertical-align: top; }
-    th { background: #f6f8fa; }
+    th { background: #f6f8fa; white-space: nowrap; }
     blockquote { margin: 1rem 0; padding: 0.5rem 1rem; border-left: 4px solid #d0d7de; color: #57606a; }
   </style>
 </head>
@@ -29,19 +29,19 @@
 <p>招式表</p>
 <br />
 <table>
-<tr><th>等级</th><th>招式</th><th>特殊效果</th><th>属性</th><th>分类</th><th>类别</th><th>威力</th><th>命中</th><th>PP</th><th>表演</th><th>妨害</th></tr>
+<tr><th><nobr>等级</nobr></th><th><nobr>招式</nobr></th><th><nobr>特殊效果</nobr></th><th><nobr>属性</nobr></th><th><nobr>分类</nobr></th><th><nobr>类别</nobr></th><th><nobr>威力</nobr></th><th><nobr>命中</nobr></th><th><nobr>PP</nobr></th><th><nobr>表演</nobr></th><th><nobr>妨害</nobr></th></tr>
 <tr><td>-</td><td><nobr>抓</nobr><br><nobr>Scratch</nobr></td><td></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>强壮</nobr></td><td>40</td><td>100</td><td>35</td><td>4</td><td>0</td></tr>
-<tr><td>-</td><td><nobr>叫声</nobr><br><nobr>Growl</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令对手的攻击下降1级</div></td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>40</td><td>2</td><td>0</td></tr>
-<tr><td>5</td><td><nobr>火花</nobr><br><nobr>Ember</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div></td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>可爱</nobr></td><td>40</td><td>100</td><td>25</td><td>4</td><td>0</td></tr>
-<tr><td>10</td><td><nobr>泼沙</nobr><br><nobr>Sand Attack</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令目标命中率下降1级</div></td><td><nobr>地面</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
+<tr><td>-</td><td><nobr>叫声</nobr><br><nobr>Growl</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>40</td><td>2</td><td>0</td></tr>
+<tr><td>5</td><td><nobr>火花</nobr><br><nobr>Ember</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>可爱</nobr></td><td>40</td><td>100</td><td>25</td><td>4</td><td>0</td></tr>
+<tr><td>10</td><td><nobr>泼沙</nobr><br><nobr>Sand Attack</nobr></td><td>{effect}</td><td><nobr>地面</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
 <tr><td>14</td><td><nobr>啄</nobr><br><nobr>Peck</nobr></td><td></td><td><nobr>飞行</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>35</td><td>100</td><td>35</td><td>4</td><td>0</td></tr>
-<tr><td>19</td><td><nobr>火焰旋涡</nobr><br><nobr>Fire Spin</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>4~5回合束缚并持续造成伤害</div></td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>35</td><td>85</td><td>15</td><td>3</td><td>0</td></tr>
-<tr><td>23</td><td><nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>先制度+1，通常可先手</div></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>40</td><td>100</td><td>30</td><td>3</td><td>0</td></tr>
-<tr><td>28</td><td><nobr>烈焰溅射</nobr><br><nobr>Flame Burst</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>攻击目标后，邻近的宝可梦也会受到少量伤害</div></td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>70</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
-<tr><td>32</td><td><nobr>聚气</nobr><br><nobr>Focus Energy</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>提高击中要害率</div></td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>30</td><td>1</td><td>0</td></tr>
-<tr><td>37</td><td><nobr>劈开</nobr><br><nobr>Slash</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>击中要害率较高</div></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>70</td><td>100</td><td>20</td><td>4</td><td>0</td></tr>
-<tr><td>41</td><td><nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>使出对手上一次使用的招式</div></td><td><nobr>飞行</nobr></td><td><nobr>变化</nobr></td><td><nobr>聪明</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
-<tr><td>46</td><td><nobr>喷射火焰</nobr><br><nobr>Flamethrower</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div></td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>90</td><td>100</td><td>15</td><td>4</td><td>0</td></tr>
+<tr><td>19</td><td><nobr>火焰旋涡</nobr><br><nobr>Fire Spin</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>35</td><td>85</td><td>15</td><td>3</td><td>0</td></tr>
+<tr><td>23</td><td><nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>40</td><td>100</td><td>30</td><td>3</td><td>0</td></tr>
+<tr><td>28</td><td><nobr>烈焰溅射</nobr><br><nobr>Flame Burst</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>70</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
+<tr><td>32</td><td><nobr>聚气</nobr><br><nobr>Focus Energy</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>30</td><td>1</td><td>0</td></tr>
+<tr><td>37</td><td><nobr>劈开</nobr><br><nobr>Slash</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>70</td><td>100</td><td>20</td><td>4</td><td>0</td></tr>
+<tr><td>41</td><td><nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr></td><td>{effect}</td><td><nobr>飞行</nobr></td><td><nobr>变化</nobr></td><td><nobr>聪明</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
+<tr><td>46</td><td><nobr>喷射火焰</nobr><br><nobr>Flamethrower</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>美丽</nobr></td><td>90</td><td>100</td><td>15</td><td>4</td><td>0</td></tr>
 </table>
 <br />
 <h3>#256 力壮鸡 / Combusken | 火 / 格斗 | Lv.36 -> #257</h3>
@@ -54,21 +54,21 @@
 <p>招式表</p>
 <br />
 <table>
-<tr><th>等级</th><th>招式</th><th>特殊效果</th><th>属性</th><th>分类</th><th>类别</th><th>威力</th><th>命中</th><th>PP</th><th>表演</th><th>妨害</th></tr>
+<tr><th><nobr>等级</nobr></th><th><nobr>招式</nobr></th><th><nobr>特殊效果</nobr></th><th><nobr>属性</nobr></th><th><nobr>分类</nobr></th><th><nobr>类别</nobr></th><th><nobr>威力</nobr></th><th><nobr>命中</nobr></th><th><nobr>PP</nobr></th><th><nobr>表演</nobr></th><th><nobr>妨害</nobr></th></tr>
 <tr><td>-</td><td><nobr>抓</nobr><br><nobr>Scratch</nobr></td><td></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>强壮</nobr></td><td>40</td><td>100</td><td>35</td><td>4</td><td>0</td></tr>
-<tr><td>-</td><td><nobr>叫声</nobr><br><nobr>Growl</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令对手的攻击下降1级</div></td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>40</td><td>2</td><td>0</td></tr>
-<tr><td>5</td><td><nobr>火花</nobr><br><nobr>Ember</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>10%概率使目标灼伤</div></td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>可爱</nobr></td><td>40</td><td>100</td><td>25</td><td>4</td><td>0</td></tr>
-<tr><td>10</td><td><nobr>泼沙</nobr><br><nobr>Sand Attack</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>令目标命中率下降1级</div></td><td><nobr>地面</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
+<tr><td>-</td><td><nobr>叫声</nobr><br><nobr>Growl</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>40</td><td>2</td><td>0</td></tr>
+<tr><td>5</td><td><nobr>火花</nobr><br><nobr>Ember</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>特殊</nobr></td><td><nobr>可爱</nobr></td><td>40</td><td>100</td><td>25</td><td>4</td><td>0</td></tr>
+<tr><td>10</td><td><nobr>泼沙</nobr><br><nobr>Sand Attack</nobr></td><td>{effect}</td><td><nobr>地面</nobr></td><td><nobr>变化</nobr></td><td><nobr>可爱</nobr></td><td>—</td><td>100</td><td>15</td><td>3</td><td>0</td></tr>
 <tr><td>14</td><td><nobr>啄</nobr><br><nobr>Peck</nobr></td><td></td><td><nobr>飞行</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>35</td><td>100</td><td>35</td><td>4</td><td>0</td></tr>
-<tr><td>16</td><td><nobr>二连踢</nobr><br><nobr>Double Kick</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>连续攻击2次</div></td><td><nobr>格斗</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>30</td><td>100</td><td>30</td><td>2</td><td>1</td></tr>
-<tr><td>20</td><td><nobr>蓄能焰袭</nobr><br><nobr>Flame Charge</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>攻击后自身速度提升1级</div></td><td><nobr>火</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>50</td><td>100</td><td>20</td><td>1</td><td>0</td></tr>
-<tr><td>25</td><td><nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>先制度+1，通常可先手</div></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>40</td><td>100</td><td>30</td><td>3</td><td>0</td></tr>
-<tr><td>31</td><td><nobr>健美</nobr><br><nobr>Bulk Up</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>自身的攻击和防御各提升1级</div></td><td><nobr>格斗</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
-<tr><td>36</td><td><nobr>聚气</nobr><br><nobr>Focus Energy</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>提高击中要害率</div></td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>30</td><td>1</td><td>0</td></tr>
-<tr><td>42</td><td><nobr>劈开</nobr><br><nobr>Slash</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>击中要害率较高</div></td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>70</td><td>100</td><td>20</td><td>4</td><td>0</td></tr>
-<tr><td>47</td><td><nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>使出对手上一次使用的招式</div></td><td><nobr>飞行</nobr></td><td><nobr>变化</nobr></td><td><nobr>聪明</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
-<tr><td>53</td><td><nobr>冲天拳</nobr><br><nobr>Sky Uppercut</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>可以打中使用了飞翔等在空中的目标</div></td><td><nobr>格斗</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>85</td><td>90</td><td>15</td><td>2</td><td>1</td></tr>
-<tr><td>58</td><td><nobr>闪焰冲锋</nobr><br><nobr>Flare Blitz</nobr></td><td><div style='max-width: 16em; white-space: normal; word-break: break-word; font-size: 0.9em; line-height: 1.3'>会给予对手伤害的一部分反作用力，也有10%概率使目标灼伤</div></td><td><nobr>火</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>120</td><td>100</td><td>15</td><td>6</td><td>0</td></tr>
+<tr><td>16</td><td><nobr>二连踢</nobr><br><nobr>Double Kick</nobr></td><td>{effect}</td><td><nobr>格斗</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>30</td><td>100</td><td>30</td><td>2</td><td>1</td></tr>
+<tr><td>20</td><td><nobr>蓄能焰袭</nobr><br><nobr>Flame Charge</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>50</td><td>100</td><td>20</td><td>1</td><td>0</td></tr>
+<tr><td>25</td><td><nobr>电光一闪</nobr><br><nobr>Quick Attack</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>40</td><td>100</td><td>30</td><td>3</td><td>0</td></tr>
+<tr><td>31</td><td><nobr>健美</nobr><br><nobr>Bulk Up</nobr></td><td>{effect}</td><td><nobr>格斗</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
+<tr><td>36</td><td><nobr>聚气</nobr><br><nobr>Focus Energy</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>变化</nobr></td><td><nobr>帅气</nobr></td><td>—</td><td>—</td><td>30</td><td>1</td><td>0</td></tr>
+<tr><td>42</td><td><nobr>劈开</nobr><br><nobr>Slash</nobr></td><td>{effect}</td><td><nobr>一般</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>70</td><td>100</td><td>20</td><td>4</td><td>0</td></tr>
+<tr><td>47</td><td><nobr>鹦鹉学舌</nobr><br><nobr>Mirror Move</nobr></td><td>{effect}</td><td><nobr>飞行</nobr></td><td><nobr>变化</nobr></td><td><nobr>聪明</nobr></td><td>—</td><td>—</td><td>20</td><td>1</td><td>0</td></tr>
+<tr><td>53</td><td><nobr>冲天拳</nobr><br><nobr>Sky Uppercut</nobr></td><td>{effect}</td><td><nobr>格斗</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>85</td><td>90</td><td>15</td><td>2</td><td>1</td></tr>
+<tr><td>58</td><td><nobr>闪焰冲锋</nobr><br><nobr>Flare Blitz</nobr></td><td>{effect}</td><td><nobr>火</nobr></td><td><nobr>物理</nobr></td><td><nobr>帅气</nobr></td><td>120</td><td>100</td><td>15</td><td>6</td><td>0</td></tr>
 </table>
 </body>
 </html>
