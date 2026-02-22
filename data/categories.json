@@ -4,20 +4,23 @@
     "name": {
       "zh": "物理",
       "en": "Physical"
-    }
+    },
+    "color": "#FF4400"
   },
   {
     "id": "special",
     "name": {
       "zh": "特殊",
       "en": "Special"
-    }
+    },
+    "color": "#2266CC"
   },
   {
     "id": "status",
     "name": {
       "zh": "变化",
       "en": "Status"
-    }
+    },
+    "color": "#999999"
   }
 ]
