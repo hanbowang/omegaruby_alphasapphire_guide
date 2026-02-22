@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 POKEDEX_FILE = ROOT / "data" / "pokedex.json"
 MOVES_FILE = ROOT / "data" / "moves.json"
+ABILITIES_FILE = ROOT / "data" / "abilities.json"
 OUTPUT_FILE = ROOT / "docs" / "guide.md"
 
 
@@ -39,12 +40,30 @@ def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
     return header + "\n".join(rows)
 
 
-def render_pokemon(entry: dict, moves_db: dict[str, dict]) -> str:
+def load_moves_db() -> dict[str, dict]:
+    moves = json.loads(MOVES_FILE.read_text(encoding="utf-8"))
+    return {move["id"]: move for move in moves}
+
+
+def load_abilities_db() -> dict[str, dict]:
+    abilities = json.loads(ABILITIES_FILE.read_text(encoding="utf-8"))
+    return {ability["id"]: ability for ability in abilities}
+
+
+def format_ability(ability_id: str, abilities_db: dict[str, dict]) -> str:
+    if ability_id not in abilities_db:
+        raise KeyError(f"Unknown ability_id '{ability_id}' in pokedex abilities.")
+    ability = abilities_db[ability_id]
+    return f"{ability['name']['zh']} / {ability['name']['en']} - {ability['description']}"
+
+
+def render_pokemon(entry: dict, moves_db: dict[str, dict], abilities_db: dict[str, dict]) -> str:
+    zh_types = " / ".join(type_name.split("/", 1)[0] for type_name in entry["types"])
+    abilities_line = "；".join(format_ability(ability_id, abilities_db) for ability_id in entry["abilities"])
     lines = [
-        f"### No.{entry['number']} {entry['name']['zh']} / {entry['name']['en']}",
+        f"### #{entry['number']} {entry['name']['zh']} / {entry['name']['en']} | {zh_types} | {entry['evolution']['condition']} -> {entry['evolution']['to']}",
         "",
-        f"- **属性/Type**：{', '.join(entry['types'])}",
-        f"- **进化/Evolution**：{entry['evolution']['condition']} → {entry['evolution']['to']}",
+        f"**特性/Abilities**：{abilities_line}",
         "",
         "**招式表/Moves**",
         "",
@@ -54,14 +73,10 @@ def render_pokemon(entry: dict, moves_db: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
-def load_moves_db() -> dict[str, dict]:
-    moves = json.loads(MOVES_FILE.read_text(encoding="utf-8"))
-    return {move["id"]: move for move in moves}
-
-
 def main() -> None:
     pokedex = json.loads(POKEDEX_FILE.read_text(encoding="utf-8"))
     moves_db = load_moves_db()
+    abilities_db = load_abilities_db()
 
     sections = [
         "# 宝可梦 欧米伽红宝石／阿尔法蓝宝石 攻略 / Pokémon Omega Ruby & Alpha Sapphire Guide",
@@ -73,7 +88,7 @@ def main() -> None:
     ]
 
     for pokemon in pokedex:
-        sections.append(render_pokemon(pokemon, moves_db))
+        sections.append(render_pokemon(pokemon, moves_db, abilities_db))
 
     OUTPUT_FILE.write_text("\n".join(sections).rstrip() + "\n", encoding="utf-8")
 
