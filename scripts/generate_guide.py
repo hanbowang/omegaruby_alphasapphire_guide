@@ -39,7 +39,9 @@ def format_moves_table(
         if type_id not in types_db:
             raise KeyError(f"Unknown type_id '{type_id}' in moves database.")
 
-        move_name = f"{move['name']['zh']}<br>{move['name']['en']}"
+        move_name = f"<nobr>{move['name']['zh']}</nobr><br><nobr>{move['name']['en']}</nobr>"
+        effect = move.get("effect", "")
+        effect_text = f"<div style='max-width: 16em'>{effect}</div>" if effect else ""
         type_name = f"<nobr>{types_db[type_id]['name']['zh']}</nobr>"
         category_id = move["category_id"]
         if category_id not in categories_db:
@@ -61,7 +63,7 @@ def format_moves_table(
             "| {level} | {move_name} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
                 level=learn["level"],
                 move_name=move_name,
-                effect=move.get("effect", ""),
+                effect=effect_text,
                 type_=type_name,
                 category=move_category,
                 contest_category=contest_category,
