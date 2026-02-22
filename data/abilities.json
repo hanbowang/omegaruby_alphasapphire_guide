@@ -70,5 +70,13 @@
       "en": "Moxie"
     },
     "description": "打倒对手后，攻击提升1级"
+  },
+  {
+    "id": "unburden",
+    "name": {
+      "zh": "轻装",
+      "en": "Unburden"
+    },
+    "description": "失去携带物后，速度提升为2倍"
   }
 ]
