@@ -8,6 +8,7 @@
 - `data/moves.json`：可复用的招式数据库（中英名称与战斗参数）。
 - `data/types.json`：属性数据库（供招式与其他资料通过 `type_id` 引用）。
 - `data/categories.json`：招式分类数据库（供招式通过 `category_id` 引用）。
+- `data/contest_categories.json`：华丽大赛类别数据库（供招式通过 `contest_category_id` 引用）。
 - `scripts/`：生成 Markdown 书籍的脚本。
 - `docs/`：生成后的攻略书内容。
 
@@ -28,7 +29,7 @@
   - 使用 `type_id` 引用 `types.json`，避免在招式表中重复维护属性文案
   - 可选 `effect` 字段：仅在招式存在额外效果时填写（例如：可能灼伤、降能力等）
   - `category_id` 字段：引用 `categories.json`（例如 `physical`、`special`、`status`）
-  - `contest_category` 字段：华丽大赛类别（强壮/聪明/美丽/可爱/帅气/机灵）
+  - `contest_category_id` 字段：引用 `contest_categories.json`（例如 `tough`、`clever`、`beauty`、`cute`、`cool`）
 - `types.json` 负责维护属性主数据（中英名称），供 `moves.json` 等数据表引用。
 - `categories.json` 负责维护招式分类主数据（物理/特殊/变化），供 `moves.json` 通过 `category_id` 引用。
 - `pokedex.json` 的 `types` 字段使用 `type_id`（如 `grass`、`fire`）引用 `types.json`。

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "tough",
+    "name": {
+      "zh": "强壮",
+      "en": "Tough"
+    }
+  },
+  {
+    "id": "clever",
+    "name": {
+      "zh": "聪明",
+      "en": "Clever"
+    }
+  },
+  {
+    "id": "beauty",
+    "name": {
+      "zh": "美丽",
+      "en": "Beauty"
+    }
+  },
+  {
+    "id": "cute",
+    "name": {
+      "zh": "可爱",
+      "en": "Cute"
+    }
+  },
+  {
+    "id": "cool",
+    "name": {
+      "zh": "帅气",
+      "en": "Cool"
+    }
+  }
+]

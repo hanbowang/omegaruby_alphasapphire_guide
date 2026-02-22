@@ -10,9 +10,9 @@
     "pp": "35",
     "appeal": "3",
     "jam": "0",
-    "contest_category": "强壮",
     "type_id": "normal",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "tough"
   },
   {
     "id": "leer",
@@ -26,9 +26,9 @@
     "appeal": "2",
     "jam": "3",
     "effect": "令对手的防御下降1级",
-    "contest_category": "聪明",
     "type_id": "normal",
-    "category_id": "status"
+    "category_id": "status",
+    "contest_category_id": "clever"
   },
   {
     "id": "quick-attack",
@@ -42,9 +42,9 @@
     "appeal": "3",
     "jam": "0",
     "effect": "先制度+1，通常可先手",
-    "contest_category": "帅气",
     "type_id": "normal",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "cool"
   },
   {
     "id": "scratch",
@@ -57,9 +57,9 @@
     "pp": "35",
     "appeal": "4",
     "jam": "0",
-    "contest_category": "强壮",
     "type_id": "normal",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "tough"
   },
   {
     "id": "ember",
@@ -73,9 +73,9 @@
     "appeal": "4",
     "jam": "0",
     "effect": "10%概率使目标灼伤",
-    "contest_category": "可爱",
     "type_id": "fire",
-    "category_id": "special"
+    "category_id": "special",
+    "contest_category_id": "cute"
   },
   {
     "id": "peck",
@@ -88,9 +88,9 @@
     "pp": "35",
     "appeal": "4",
     "jam": "0",
-    "contest_category": "帅气",
     "type_id": "flying",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "cool"
   },
   {
     "id": "tackle",
@@ -103,9 +103,9 @@
     "pp": "35",
     "appeal": "2",
     "jam": "0",
-    "contest_category": "强壮",
     "type_id": "normal",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "tough"
   },
   {
     "id": "growl",
@@ -119,9 +119,9 @@
     "appeal": "2",
     "jam": "0",
     "effect": "令对手的攻击下降1级",
-    "contest_category": "可爱",
     "type_id": "normal",
-    "category_id": "status"
+    "category_id": "status",
+    "contest_category_id": "cute"
   },
   {
     "id": "water-gun",
@@ -134,9 +134,9 @@
     "pp": "25",
     "appeal": "2",
     "jam": "0",
-    "contest_category": "美丽",
     "type_id": "water",
-    "category_id": "special"
+    "category_id": "special",
+    "contest_category_id": "beauty"
   },
   {
     "id": "fire-spin",
@@ -150,9 +150,9 @@
     "appeal": "3",
     "jam": "0",
     "effect": "4~5回合束缚并持续造成伤害",
-    "contest_category": "美丽",
     "type_id": "fire",
-    "category_id": "special"
+    "category_id": "special",
+    "contest_category_id": "beauty"
   },
   {
     "id": "flamethrower",
@@ -166,9 +166,9 @@
     "appeal": "4",
     "jam": "0",
     "effect": "10%概率使目标灼伤",
-    "contest_category": "美丽",
     "type_id": "fire",
-    "category_id": "special"
+    "category_id": "special",
+    "contest_category_id": "beauty"
   },
   {
     "id": "focus-energy",
@@ -182,9 +182,9 @@
     "appeal": "1",
     "jam": "0",
     "effect": "提高击中要害率",
-    "contest_category": "帅气",
     "type_id": "normal",
-    "category_id": "status"
+    "category_id": "status",
+    "contest_category_id": "cool"
   },
   {
     "id": "mirror-move",
@@ -198,9 +198,9 @@
     "appeal": "1",
     "jam": "0",
     "effect": "使出对手上一次使用的招式",
-    "contest_category": "聪明",
     "type_id": "flying",
-    "category_id": "status"
+    "category_id": "status",
+    "contest_category_id": "clever"
   },
   {
     "id": "sand-attack",
@@ -214,9 +214,9 @@
     "appeal": "3",
     "jam": "0",
     "effect": "令目标命中率下降1级",
-    "contest_category": "可爱",
     "type_id": "ground",
-    "category_id": "status"
+    "category_id": "status",
+    "contest_category_id": "cute"
   },
   {
     "id": "slash",
@@ -230,9 +230,9 @@
     "appeal": "4",
     "jam": "0",
     "effect": "击中要害率较高",
-    "contest_category": "帅气",
     "type_id": "normal",
-    "category_id": "physical"
+    "category_id": "physical",
+    "contest_category_id": "cool"
   },
   {
     "id": "flame-burst",
@@ -246,8 +246,8 @@
     "appeal": "3",
     "jam": "0",
     "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害",
-    "contest_category": "美丽",
     "type_id": "fire",
-    "category_id": "special"
+    "category_id": "special",
+    "contest_category_id": "beauty"
   }
 ]
