@@ -11,7 +11,8 @@
     "accuracy": "100",
     "pp": "35",
     "appeal": "3",
-    "jam": "0"
+    "jam": "0",
+    "contest_category": "强壮"
   },
   {
     "id": "leer",
@@ -26,7 +27,8 @@
     "pp": "30",
     "appeal": "2",
     "jam": "3",
-    "effect": "令对手的防御下降1级。"
+    "effect": "令对手的防御下降1级。",
+    "contest_category": "聪明"
   },
   {
     "id": "quick-attack",
@@ -41,7 +43,8 @@
     "pp": "30",
     "appeal": "2",
     "jam": "0",
-    "effect": "先制度+1，通常可先手。"
+    "effect": "先制度+1，通常可先手。",
+    "contest_category": "帅气"
   },
   {
     "id": "scratch",
@@ -55,7 +58,8 @@
     "accuracy": "100",
     "pp": "35",
     "appeal": "3",
-    "jam": "0"
+    "jam": "0",
+    "contest_category": "强壮"
   },
   {
     "id": "ember",
@@ -70,7 +74,8 @@
     "pp": "25",
     "appeal": "2",
     "jam": "0",
-    "effect": "10%概率使目标灼伤。"
+    "effect": "10%概率使目标灼伤。",
+    "contest_category": "可爱"
   },
   {
     "id": "peck",
@@ -84,7 +89,8 @@
     "accuracy": "100",
     "pp": "35",
     "appeal": "2",
-    "jam": "0"
+    "jam": "0",
+    "contest_category": "帅气"
   },
   {
     "id": "tackle",
@@ -98,7 +104,8 @@
     "accuracy": "100",
     "pp": "35",
     "appeal": "2",
-    "jam": "0"
+    "jam": "0",
+    "contest_category": "强壮"
   },
   {
     "id": "growl",
@@ -113,7 +120,8 @@
     "pp": "40",
     "appeal": "2",
     "jam": "2",
-    "effect": "令对手的攻击下降1级。"
+    "effect": "令对手的攻击下降1级。",
+    "contest_category": "可爱"
   },
   {
     "id": "water-gun",
@@ -127,7 +135,8 @@
     "accuracy": "100",
     "pp": "25",
     "appeal": "2",
-    "jam": "0"
+    "jam": "0",
+    "contest_category": "美丽"
   },
   {
     "id": "fire-spin",
@@ -142,7 +151,8 @@
     "pp": "15",
     "appeal": "2",
     "jam": "3",
-    "effect": "4~5回合束缚并持续造成伤害。"
+    "effect": "4~5回合束缚并持续造成伤害。",
+    "contest_category": "美丽"
   },
   {
     "id": "flamethrower",
@@ -157,7 +167,8 @@
     "pp": "15",
     "appeal": "4",
     "jam": "0",
-    "effect": "10%概率使目标灼伤。"
+    "effect": "10%概率使目标灼伤。",
+    "contest_category": "美丽"
   },
   {
     "id": "focus-energy",
@@ -172,7 +183,8 @@
     "pp": "30",
     "appeal": "1",
     "jam": "0",
-    "effect": "提高击中要害率。"
+    "effect": "提高击中要害率。",
+    "contest_category": "帅气"
   },
   {
     "id": "mirror-move",
@@ -187,7 +199,8 @@
     "pp": "20",
     "appeal": "1",
     "jam": "0",
-    "effect": "使出对手上一次使用的招式。"
+    "effect": "使出对手上一次使用的招式。",
+    "contest_category": "聪明"
   },
   {
     "id": "sand-attack",
@@ -202,7 +215,8 @@
     "pp": "15",
     "appeal": "1",
     "jam": "3",
-    "effect": "令目标命中率下降1级。"
+    "effect": "令目标命中率下降1级。",
+    "contest_category": "可爱"
   },
   {
     "id": "slash",
@@ -217,7 +231,8 @@
     "pp": "20",
     "appeal": "3",
     "jam": "0",
-    "effect": "击中要害率较高。"
+    "effect": "击中要害率较高。",
+    "contest_category": "帅气"
   },
   {
     "id": "flame-burst",
@@ -232,6 +247,7 @@
     "pp": "15",
     "appeal": "3",
     "jam": "0",
-    "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害。"
+    "effect": "攻击目标后，邻近的宝可梦也会受到少量伤害。",
+    "contest_category": "美丽"
   }
 ]

@@ -16,8 +16,8 @@ OUTPUT_FILE = ROOT / "docs" / "guide.md"
 
 def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
     header = (
-        "| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 威力 | 命中 | PP | 表演 | 妨害 |\n"
-        "|---|---|---|---|---|---|---|---|---|---|\n"
+        "| 等级 | 招式 | 特殊效果 | 属性 | 分类 | 类别 | 威力 | 命中 | PP | 表演 | 妨害 |\n"
+        "|---|---|---|---|---|---|---|---|---|---|---|\n"
     )
     rows = []
     for learn in learnset:
@@ -26,13 +26,14 @@ def format_moves_table(learnset: list[dict], moves_db: dict[str, dict]) -> str:
             raise KeyError(f"Unknown move_id '{move_id}' in pokedex learnset.")
         move = moves_db[move_id]
         rows.append(
-            "| {level} | {zh} / {en} | {effect} | {type_} | {category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
+            "| {level} | {zh} / {en} | {effect} | {type_} | {category} | {contest_category} | {power} | {accuracy} | {pp} | {appeal} | {jam} |".format(
                 level=learn["level"],
                 zh=move["name"]["zh"],
                 en=move["name"]["en"],
                 effect=move.get("effect", ""),
                 type_=move["type"].split("/", 1)[0],
                 category=move["category"].split("/", 1)[0],
+                contest_category=move.get("contest_category", "—"),
                 power=move["power"],
                 accuracy=move["accuracy"],
                 pp=move["pp"],
