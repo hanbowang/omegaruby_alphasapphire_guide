@@ -141,5 +141,109 @@
     "abilities": [
       "blaze"
     ]
+  },
+  {
+    "number": "257",
+    "name": {
+      "zh": "火焰鸡",
+      "en": "Blaziken"
+    },
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "evolution": {
+      "condition": "—",
+      "to_number": "-"
+    },
+    "moves": [
+      {
+        "level": "-",
+        "move_id": "flare-blitz"
+      },
+      {
+        "level": "-",
+        "move_id": "fire-punch"
+      },
+      {
+        "level": "-",
+        "move_id": "high-jump-kick"
+      },
+      {
+        "level": "-",
+        "move_id": "scratch"
+      },
+      {
+        "level": "-",
+        "move_id": "growl"
+      },
+      {
+        "level": "-",
+        "move_id": "focus-energy"
+      },
+      {
+        "level": "-",
+        "move_id": "ember"
+      },
+      {
+        "level": "-",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "13",
+        "move_id": "ember"
+      },
+      {
+        "level": "21",
+        "move_id": "sand-attack"
+      },
+      {
+        "level": "17",
+        "move_id": "peck"
+      },
+      {
+        "level": "16",
+        "move_id": "double-kick"
+      },
+      {
+        "level": "-",
+        "move_id": "flame-charge"
+      },
+      {
+        "level": "32",
+        "move_id": "quick-attack"
+      },
+      {
+        "level": "28",
+        "move_id": "bulk-up"
+      },
+      {
+        "level": "36",
+        "move_id": "blaze-kick"
+      },
+      {
+        "level": "7",
+        "move_id": "focus-energy"
+      },
+      {
+        "level": "42",
+        "move_id": "slash"
+      },
+      {
+        "level": "49",
+        "move_id": "brave-bird"
+      },
+      {
+        "level": "59",
+        "move_id": "sky-uppercut"
+      },
+      {
+        "level": "66",
+        "move_id": "flare-blitz"
+      }
+    ],
+    "abilities": [
+      "blaze"
+    ]
   }
 ]
