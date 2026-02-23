@@ -5,14 +5,15 @@ p { margin: 0.4rem 0; }
 ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }
 .guide-table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
 .guide-table th, .guide-table td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }
-.guide-table th { background: #f6f8fa; white-space: nowrap; }
+.guide-table th { white-space: nowrap; }
+.guide-table th:not(.bg-dynamic) { background: #f6f8fa; }
 .ta-center { text-align: center; }
 .va-middle { vertical-align: middle; }
 .nowrap { white-space: nowrap; }
 .bg-dynamic { background: var(--cell-bg, var(--cell-bg-default)); }
 .text-type { color: var(--text-color, inherit); }
 .table-scroll { overflow-x: auto; }
-.type-chart th, .natures-table th, .personality-table th, .moves-table th { background: #f6f8fa; }
+.type-chart th:not(.bg-dynamic), .natures-table th, .personality-table th, .moves-table th { background: #f6f8fa; }
 .type-chart .multiplier-2x { background: var(--multiplier-2x-bg); }
 .type-chart .multiplier-half { background: var(--multiplier-half-bg); }
 .type-chart .multiplier-zero { background: var(--multiplier-zero-bg); color: var(--multiplier-zero-text); }
