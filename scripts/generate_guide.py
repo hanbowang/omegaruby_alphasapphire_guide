@@ -48,6 +48,7 @@ def render_table(
     table_class: str,
     header_cell_class: str,
     cell_class: str,
+    first_col_as_header: bool = False,
 ) -> str:
     lines = [f"<table class='{table_class}'>", "<tr>"]
     lines.extend(f"<th class='{header_cell_class}'>{header}</th>" for header in headers)
@@ -55,7 +56,11 @@ def render_table(
 
     for row in rows:
         lines.append("<tr>")
-        lines.extend(f"<td class='{cell_class}'>{cell}</td>" for cell in row)
+        for index, cell in enumerate(row):
+            if first_col_as_header and index == 0:
+                lines.append(f"<th class='{header_cell_class}'>{cell}</th>")
+            else:
+                lines.append(f"<td class='{cell_class}'>{cell}</td>")
         lines.append("</tr>")
 
     lines.append("</table>")
@@ -325,6 +330,7 @@ def render_natures_section() -> str:
             "guide-table natures-table",
             "ta-center va-middle",
             "ta-center va-middle",
+            first_col_as_header=True,
         ),
     ])
 
