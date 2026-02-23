@@ -21,7 +21,6 @@ OUTPUT_CSS_FILE = ROOT / "docs" / "styles.css"
 def render_css() -> str:
     return "\n".join(
         [
-            ":root { --cell-bg-default: transparent; --multiplier-2x-bg: #b7eb8f; --multiplier-half-bg: #ffb3b3; --multiplier-zero-bg: #4a4a4a; --multiplier-zero-text: #ffffff; --multiplier-normal-bg: transparent; }",
             "body { font-family: sans-serif; font-size: 14px; line-height: 1.35; margin: 1rem auto; max-width: 1100px; padding: 0 0.5rem; }",
             "h1, h2, h3 { line-height: 1.25; margin: 0.6rem 0; }",
             "p { margin: 0.4rem 0; }",
@@ -32,18 +31,11 @@ def render_css() -> str:
             ".ta-center { text-align: center; }",
             ".va-middle { vertical-align: middle; }",
             ".nowrap { white-space: nowrap; }",
-            ".bg-dynamic { background: var(--cell-bg, var(--cell-bg-default)); }",
-            ".text-type { color: var(--text-color, inherit); }",
             ".table-scroll { overflow-x: auto; }",
-            ".type-chart th, .natures-table th, .personality-table th, .moves-table th { background: #f6f8fa; }",
-            ".type-chart .multiplier-2x { background: var(--multiplier-2x-bg); }",
-            ".type-chart .multiplier-half { background: var(--multiplier-half-bg); }",
-            ".type-chart .multiplier-zero { background: var(--multiplier-zero-bg); color: var(--multiplier-zero-text); }",
-            ".type-chart .multiplier-normal { background: var(--multiplier-normal-bg); }",
+            ".type-chart .multiplier-2x { background: #b7eb8f; }",
+            ".type-chart .multiplier-half { background: #ffb3b3; }",
+            ".type-chart .multiplier-zero { background: #4a4a4a; color: #ffffff; }",
             "blockquote { margin: 0.6rem 0; padding: 0.35rem 0.75rem; border-left: 4px solid #d0d7de; color: #57606a; }",
-            "@media (prefers-color-scheme: dark) {",
-            "  :root { --cell-bg-default: transparent; --multiplier-2x-bg: #355c2b; --multiplier-half-bg: #6b2f2f; --multiplier-zero-bg: #1f1f1f; --multiplier-zero-text: #f5f5f5; --multiplier-normal-bg: transparent; }",
-            "}",
             "@media print { body { font-size: 12.5px; margin: 0; padding: 0; max-width: none; } .guide-table { margin: 0.35rem 0; } .guide-table th, .guide-table td { padding: 0.2rem 0.3rem; } }",
             "",
         ]
@@ -83,10 +75,7 @@ def get_moves_header_cell_classes(index: int) -> list[str]:
 
 
 def get_moves_row_cell_classes(index: int) -> list[str]:
-    classes = get_moves_header_cell_classes(index)
-    if index in {3, 4, 8}:
-        classes.append("bg-dynamic")
-    return classes
+    return get_moves_header_cell_classes(index)
 
 
 def format_moves_table(
@@ -177,11 +166,11 @@ def format_moves_table(
             classes = get_moves_row_cell_classes(i)
             style_attr = ""
             if i == 3:
-                style_attr = f" style='--cell-bg: {type_color};'"
+                style_attr = f" style='background-color: {type_color};'"
             if i == 4:
-                style_attr = f" style='--cell-bg: {category_color};'"
+                style_attr = f" style='background-color: {category_color};'"
             if i == 8 and contest_category_color:
-                style_attr = f" style='--cell-bg: {contest_category_color};'"
+                style_attr = f" style='background-color: {contest_category_color};'"
 
             class_attr = f" class='{' '.join(classes)}'" if classes else ""
             row_cells.append(f"<td{class_attr}{style_attr}>{cell}</td>")
@@ -246,7 +235,7 @@ def format_pokemon_types(entry: dict, types_db: dict[str, dict]) -> str:
         if raw_type in types_db:
             type_name = types_db[raw_type]["name"]["zh"]
             type_color = types_db[raw_type].get("color", "inherit")
-            zh_types.append(f"<span class='text-type' style='--text-color: {type_color};'>{type_name}</span>")
+            zh_types.append(f"<span style='color: {type_color};'>{type_name}</span>")
             continue
 
         if "/" in raw_type:
@@ -400,8 +389,8 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
     for defender_type in ordered_types:
         defender = types_db[defender_type]
         lines.append(
-            "<th class='ta-center va-middle bg-dynamic' "
-            f"style='--cell-bg: {defender.get('color', '#f6f8fa')};'>{defender['name']['zh']}</th>"
+            "<th class='ta-center va-middle' "
+            f"style='background-color: {defender.get('color', '#f6f8fa')};'>{defender['name']['zh']}</th>"
         )
 
     lines.append("</tr>")
@@ -410,8 +399,8 @@ def render_type_chart_section(types_db: dict[str, dict]) -> str:
         attacker = types_db[attacker_type]
         lines.append("<tr>")
         lines.append(
-            "<th class='ta-center va-middle bg-dynamic' "
-            f"style='--cell-bg: {attacker.get('color', '#f6f8fa')};'>{attacker['name']['zh']}</th>"
+            "<th class='ta-center va-middle' "
+            f"style='background-color: {attacker.get('color', '#f6f8fa')};'>{attacker['name']['zh']}</th>"
         )
 
         attack_multipliers = attacker["attack_multipliers"]
