@@ -17,6 +17,19 @@ CONTEST_CATEGORIES_FILE = ROOT / "data" / "contest_categories.json"
 OUTPUT_HTML_FILE = ROOT / "docs" / "index.html"
 OUTPUT_CSS_FILE = ROOT / "docs" / "styles.css"
 
+MOVES_CENTER_BOTH_INDICES = {0, 3, 4, 5, 6, 7, 8, 9, 10}
+MOVES_CENTER_VERTICAL_ONLY_INDICES = {1, 2}
+MOVES_NOWRAP_INDICES = {0, 1, 3, 4, 8}
+
+
+def format_attrs(*, classes: list[str] | None = None, style: str | None = None) -> str:
+    attrs: list[str] = []
+    if classes:
+        attrs.append(f"class='{' '.join(classes)}'")
+    if style:
+        attrs.append(f"style='{style}'")
+    return f" {' '.join(attrs)}" if attrs else ""
+
 
 def render_css() -> str:
     return "\n".join(
@@ -50,17 +63,22 @@ def render_table(
     cell_class: str,
     first_col_as_header: bool = False,
 ) -> str:
+    header_classes = header_cell_class.split()
+    cell_classes = cell_class.split()
+
     lines = [f"<table class='{table_class}'>", "<tr>"]
-    lines.extend(f"<th class='{header_cell_class}'>{header}</th>" for header in headers)
+    lines.extend(
+        f"<th{format_attrs(classes=header_classes)}>{header}</th>" for header in headers
+    )
     lines.append("</tr>")
 
     for row in rows:
         lines.append("<tr>")
         for index, cell in enumerate(row):
             if first_col_as_header and index == 0:
-                lines.append(f"<th class='{header_cell_class}'>{cell}</th>")
+                lines.append(f"<th{format_attrs(classes=header_classes)}>{cell}</th>")
             else:
-                lines.append(f"<td class='{cell_class}'>{cell}</td>")
+                lines.append(f"<td{format_attrs(classes=cell_classes)}>{cell}</td>")
         lines.append("</tr>")
 
     lines.append("</table>")
@@ -68,13 +86,10 @@ def render_table(
 
 
 def get_moves_header_cell_classes(index: int) -> list[str]:
-    center_both_indices = {0, 3, 4, 5, 6, 7, 8, 9, 10}
-    center_vertical_only_indices = {1, 2}
-
     classes: list[str] = []
-    if index in center_both_indices:
+    if index in MOVES_CENTER_BOTH_INDICES:
         classes.extend(["ta-center", "va-middle"])
-    elif index in center_vertical_only_indices:
+    elif index in MOVES_CENTER_VERTICAL_ONLY_INDICES:
         classes.append("va-middle")
     return classes
 
@@ -91,24 +106,13 @@ def format_moves_table(
     contest_categories_db: dict[str, dict],
     pokemon_types: set[str],
 ) -> str:
-    header_cells = [
-        "<span class='nowrap'>等级</span>",
-        "<span class='nowrap'>招式</span>",
-        "<span class='nowrap'>特殊效果</span>",
-        "<span class='nowrap'>属性</span>",
-        "<span class='nowrap'>分类</span>",
-        "<span class='nowrap'>威力</span>",
-        "<span class='nowrap'>命中</span>",
-        "<span class='nowrap'>PP</span>",
-        "<span class='nowrap'>类别</span>",
-        "<span class='nowrap'>表演</span>",
-        "<span class='nowrap'>妨害</span>",
-    ]
+    header_cells = ["等级", "招式", "特殊效果", "属性", "分类", "威力", "命中", "PP", "类别", "表演", "妨害"]
     header_row = []
     for i, cell in enumerate(header_cells):
         classes = get_moves_header_cell_classes(i)
-        class_attr = f" class='{' '.join(classes)}'" if classes else ""
-        header_row.append(f"<th{class_attr}>{cell}</th>")
+        if i in MOVES_NOWRAP_INDICES:
+            classes = [*classes, "nowrap"]
+        header_row.append(f"<th{format_attrs(classes=classes)}>{cell}</th>")
 
     lines = [
         "<table class='guide-table moves-table'>",
@@ -131,16 +135,14 @@ def format_moves_table(
 
         contest_category_id = move.get("contest_category_id")
         if contest_category_id is None:
-            contest_category = "<span class='nowrap'>—</span>"
+            contest_category = "—"
             contest_category_color = None
         else:
             if contest_category_id not in contest_categories_db:
                 raise KeyError(
                     f"Unknown contest_category_id '{contest_category_id}' in moves database."
                 )
-            contest_category = (
-                f"<span class='nowrap'>{contest_categories_db[contest_category_id]['name']['zh']}</span>"
-            )
+            contest_category = contest_categories_db[contest_category_id]["name"]["zh"]
             contest_category_color = contest_categories_db[contest_category_id].get("color")
 
         type_color = types_db[type_id].get("color", "#FFFFFF")
@@ -157,8 +159,8 @@ def format_moves_table(
             learn["level"],
             f"<span class='nowrap'>{move['name']['zh']}</span><br><span class='nowrap'>{move['name']['en']}</span>",
             move.get("effect", ""),
-            f"<span class='nowrap'>{types_db[type_id]['name']['zh']}</span>",
-            f"<span class='nowrap'>{categories_db[category_id]['name']['zh']}</span>",
+            types_db[type_id]["name"]["zh"],
+            categories_db[category_id]["name"]["zh"],
             displayed_power,
             move["accuracy"],
             move["pp"],
@@ -169,47 +171,47 @@ def format_moves_table(
         row_cells = []
         for i, cell in enumerate(cells):
             classes = get_moves_row_cell_classes(i)
-            style_attr = ""
-            if i == 3:
-                style_attr = f" style='background-color: {type_color};'"
-            if i == 4:
-                style_attr = f" style='background-color: {category_color};'"
-            if i == 8 and contest_category_color:
-                style_attr = f" style='background-color: {contest_category_color};'"
+            if i in MOVES_NOWRAP_INDICES:
+                classes = [*classes, "nowrap"]
 
-            class_attr = f" class='{' '.join(classes)}'" if classes else ""
-            row_cells.append(f"<td{class_attr}{style_attr}>{cell}</td>")
+            style = None
+            if i == 3:
+                style = f"background-color: {type_color};"
+            if i == 4:
+                style = f"background-color: {category_color};"
+            if i == 8 and contest_category_color:
+                style = f"background-color: {contest_category_color};"
+
+            row_cells.append(f"<td{format_attrs(classes=classes, style=style)}>{cell}</td>")
         lines.append("<tr>" + "".join(row_cells) + "</tr>")
 
     lines.append("</table>")
     return "\n".join(lines)
 
 
+def load_json_indexed_by_id(path: Path) -> dict[str, dict]:
+    records = json.loads(path.read_text(encoding="utf-8"))
+    return {record["id"]: record for record in records}
+
+
 def load_moves_db() -> dict[str, dict]:
-    moves = json.loads(MOVES_FILE.read_text(encoding="utf-8"))
-    return {move["id"]: move for move in moves}
+    return load_json_indexed_by_id(MOVES_FILE)
 
 
 def load_abilities_db() -> dict[str, dict]:
-    abilities = json.loads(ABILITIES_FILE.read_text(encoding="utf-8"))
-    return {ability["id"]: ability for ability in abilities}
+    return load_json_indexed_by_id(ABILITIES_FILE)
 
 
 def load_types_db() -> dict[str, dict]:
-    types = json.loads(TYPES_FILE.read_text(encoding="utf-8"))
-    return {pokemon_type["id"]: pokemon_type for pokemon_type in types}
+    return load_json_indexed_by_id(TYPES_FILE)
 
 
 def load_categories_db() -> dict[str, dict]:
-    categories = json.loads(CATEGORIES_FILE.read_text(encoding="utf-8"))
-    return {category["id"]: category for category in categories}
+    return load_json_indexed_by_id(CATEGORIES_FILE)
 
 
 def load_contest_categories_db() -> dict[str, dict]:
-    contest_categories = json.loads(CONTEST_CATEGORIES_FILE.read_text(encoding="utf-8"))
-    return {
-        contest_category["id"]: contest_category for contest_category in contest_categories
-    }
+    return load_json_indexed_by_id(CONTEST_CATEGORIES_FILE)
 
 
 def parse_ability_entry(ability_entry: str | dict) -> tuple[str, bool]:
