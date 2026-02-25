@@ -4,6 +4,7 @@ p { margin: 0.4rem 0; }
 ul { margin: 0.3rem 0 0.5rem; padding-left: 1.2rem; }
 .guide-table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
 .guide-table th, .guide-table td { border: 1px solid #d0d7de; padding: 0.25rem 0.35rem; vertical-align: top; }
+.guide-table .va-middle { vertical-align: middle; }
 .guide-table th { background: #f6f8fa; white-space: nowrap; }
 .ta-center { text-align: center; }
 .va-middle { vertical-align: middle; }
